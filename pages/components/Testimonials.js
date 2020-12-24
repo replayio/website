@@ -139,7 +139,7 @@ export default function Testimonials() {
         className="absolute  bg-gray-50 pointer-events-none top-0"
         style={{ width: "100%", height: "40%" }}
       ></div>
-      <div className="flex overflow-scroll -my-8">
+      <div className="flex overflow-hidden -my-8">
         <ul className="flex items-center w-full py-8">
           {[
             ...testimonials,
