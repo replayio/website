@@ -4,6 +4,12 @@ const files = ["view"];
 const rewrites = [];
 const headers = [];
 
+rewrites.push({
+  source: `/protocol/tot/:domain`,
+  destination: `https://dc3tvimjwmdjm.cloudfront.net/protocol/tot/:domain/`,
+});
+
+
 for (const directory of directories) {
   headers.push({
     source: `/${directory}/:rest*`,
@@ -16,10 +22,6 @@ for (const directory of directories) {
   });
 }
 
-rewrites.push({
-  source: `/protocol/tot/:domain`,
-  destination: `https://dc3tvimjwmdjm.cloudfront.net/protocol/tot/:domain/`,
-});
 
 
 for (const file of files) {
