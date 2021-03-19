@@ -76,7 +76,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <Carousel setShowVideo={setShowVideo} />
+      {/* <Carousel setShowVideo={setShowVideo} /> */}
     </header>
   );
 }
