@@ -6,16 +6,6 @@ export default function Features() {
           <div className="flex-1"></div>
           <div className="flex-1"></div>
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex justify-center">
-          <video
-            className="relative rounded-lg shadow-lg"
-            src=" https://giant.gfycat.com/RecentElasticAntipodesgreenparakeet.mp4"
-            autoplay
-            loop
-            alt="App screenshot"
-            style={{ width: "800px" }}
-          />
-        </div>
       </div>
 
       <div className="mt-16 mx-auto max-w-7xl px-4 sm:mt-24 sm:px-6">
