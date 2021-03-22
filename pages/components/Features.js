@@ -32,11 +32,11 @@ export default function Features() {
                     The universal translator your team is missing
                   </dt>
                   <dd className="mt-2 text-xl text-gray-500">
-                    Your support team can file support tickets easier than
-                    before. Design and product can explain what they’re seeing
-                    without resorting to drawing diagrams and hand gestures. And
-                    engineers get the best repro steps of their life. Pretty
-                    cool.
+                    With Replay, your support team can file support tickets
+                    easier than before. Design and product can explain what
+                    they’re seeing without resorting to drawing diagrams and
+                    hand gestures. And engineers get the best repro steps of
+                    their life.
                   </dd>
                 </div>
 
@@ -56,7 +56,7 @@ export default function Features() {
                   <div class="max-w-7xl mx-auto md:grid md:grid-cols-1 md:px-6 lg:px-8">
                     <div class="py-6 px-4 sm:px-6 md:flex md:flex-col md:py-4 md:pl-0 md:pr-10 lg:pr-16">
                       <blockquote class="mt-6 md:flex-grow md:flex md:flex-col">
-                        <div class="relative text-lg font-medium text-gray-900 md:flex-grow">
+                        <div class="relative text-xl italic text-gray-500 md:flex-grow">
                           <p class="relative py-0">
                             "Replay is going to be amazing for library
                             maintainers. We'll no longer need to ask for repro
@@ -75,10 +75,10 @@ export default function Features() {
                             </div>
                             <div class="ml-4">
                               <div class="text-base font-medium text-gray-500">
-                                Impressive human
+                                Brian Vaughn
                               </div>
                               <div class="text-base font-medium text-gray-400">
-                                CEO, Company name
+                                React Maintainer
                               </div>
                             </div>
                           </div>
@@ -130,9 +130,10 @@ export default function Features() {
                   <div class="max-w-7xl mx-auto md:grid md:grid-cols-1 md:px-6 lg:px-8">
                     <div class="py-6 px-4 sm:px-6 md:flex md:flex-col md:py-4 md:pl-0 md:pr-10 lg:pr-16">
                       <blockquote class="mt-6 md:flex-grow md:flex md:flex-col">
-                        <div class="relative text-lg font-medium text-gray-900 md:flex-grow">
+                        <div class="relative text-xl italic text-pink-500 md:flex-grow">
                           <p class="relative py-0">
-                            "I work with highly sensitive data etc etc!"
+                            "I work with highly sensitive data etc etc! We need
+                            a quote here!"
                           </p>
                         </div>
                         <footer class="mt-8">
@@ -145,10 +146,10 @@ export default function Features() {
                               />
                             </div>
                             <div class="ml-4">
-                              <div class="text-base font-medium text-gray-500">
+                              <div class="text-base font-medium text-pink-500">
                                 Impressive human
                               </div>
-                              <div class="text-base font-medium text-gray-400">
+                              <div class="text-base font-medium text-pink-400">
                                 CEO, Company name
                               </div>
                             </div>
@@ -178,7 +179,7 @@ export default function Features() {
                   <dt className="text-xl leading-6 font-medium text-gray-900">
                     Seriously, it's pretty nuts
                   </dt>
-                  <dd className="mt-2 text-base text-gray-500">
+                  <dd className="mt-2 text-xl text-gray-500">
                     We’ve been working on this for over five years, first at
                     Mozilla and now as our own company. The more you understand
                     the technical details of what we're doing, the more magical
@@ -190,7 +191,7 @@ export default function Features() {
                   <dt className="text-xl leading-6 font-medium text-gray-900">
                     Open source by design
                   </dt>
-                  <dd className="mt-2 text-base text-gray-500">
+                  <dd className="mt-2 text-xl text-gray-500">
                     Replay has been built from the ground up to allow lots of
                     different interfaces and runtimes to plug into it. Stay
                     tuned 🤓
@@ -201,7 +202,7 @@ export default function Features() {
                   <div class="max-w-7xl mx-auto md:grid md:grid-cols-1 md:px-6 lg:px-8">
                     <div class="py-6 px-4 sm:px-6 md:flex md:flex-col md:py-4 md:pl-0 md:pr-10 lg:pr-16">
                       <blockquote class="mt-6 md:flex-grow md:flex md:flex-col">
-                        <div class="relative text-lg font-medium text-gray-900 md:flex-grow">
+                        <div class="relative text-xl italic text-gray-500 md:flex-grow">
                           <p class="relative py-0">
                             "Debugging intermittent tests in Replay will be a
                             game changer. The debugger feels like hopping into
@@ -219,10 +220,10 @@ export default function Features() {
                             </div>
                             <div class="ml-4">
                               <div class="text-base font-medium text-gray-500">
-                                Impressive human
+                                Gleb Bahmutov
                               </div>
                               <div class="text-base font-medium text-gray-400">
-                                CEO, Company name
+                                Cypress Distinguished Engineer
                               </div>
                             </div>
                           </div>
