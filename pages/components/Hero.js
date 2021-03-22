@@ -122,7 +122,7 @@ export default function Hero() {
             style={{
               width: "900px",
               boxShadow: "2px 3px 9px 2px #dcdcdc",
-              borderRadius: "27px",
+              borderRadius: "6px",
             }}
             className={`${showPlayer && "hidden"}`}
             src="/screenshot.png"
