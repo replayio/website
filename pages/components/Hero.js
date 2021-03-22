@@ -30,25 +30,7 @@ function Video() {
   return (
     <div className="flex justify-center">
       <div id="replay-video" className={`${!showPlayer && "hidden"}`}></div>
-      <div className="relative">
-        <div
-          style={{
-            position: "absolute",
-            left: "50%",
-            top: "50%",
-          }}
-        >
-          <ReactSVG
-            // style={{
-            //   position: "absolute",
-            //   width: "40px",
-            // }}
-            width="40px"
-            height="40px"
-            wrapper="svg"
-            src="/play-btn.svg"
-          />
-        </div>
+      <div className="relative cursor-pointer" onClick={() => onClickHero()}>
         <img
           style={{
             width: "900px",
@@ -57,22 +39,17 @@ function Video() {
           }}
           className={`${showPlayer && "hidden"}`}
           src="/screenshot.png"
-          onClick={() => onClickHero()}
-        ></img>
+        />
+        {!showPlayer ? <div className="w-min absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-90">
+          <ReactSVG
+            className="transform scale-50"
+            width="180px"
+            height="180px"
+            wrapper="svg"
+            src="/play-btn.svg"
+          />
+        </div> : null}
       </div>
-      {/* <iframe
-        src="https://player.vimeo.com/video/527068688"
-        width="640"
-        height="360"
-        frameborder="0"
-        allow="autoplay; fullscreen; picture-in-picture"
-        allowfullscreen
-      ></iframe> */}
-      {/* <ReactPlayer
-        vimeo={{ controls: true }}
-        // controls={true}
-        url="https://player.vimeo.com/video/527068688"
-      /> */}
   </div>
   );
 }
