@@ -3,9 +3,13 @@ import ReactPlayer from "react-player";
 import Player from "@vimeo/player";
 import { ReactSVG } from "react-svg";
 
-export default function Hero() {
+function Video() {
   const [player, setPlayer] = useState(null);
   const [showPlayer, setShowPlayer] = useState(false);
+  const onClickHero = () => {
+    setShowPlayer(true);
+    player.play();
+  };
 
   useEffect(() => {
     var options = {
@@ -22,10 +26,58 @@ export default function Hero() {
       console.log("played the video!");
     });
   }, []);
-  const onClickHero = () => {
-    setShowPlayer(true);
-    player.play();
-  };
+
+  return (
+    <div className="flex justify-center">
+      <div id="replay-video" className={`${!showPlayer && "hidden"}`}></div>
+      <div className="relative">
+        <div
+          style={{
+            position: "absolute",
+            left: "50%",
+            top: "50%",
+          }}
+        >
+          <ReactSVG
+            // style={{
+            //   position: "absolute",
+            //   width: "40px",
+            // }}
+            width="40px"
+            height="40px"
+            wrapper="svg"
+            src="/play-btn.svg"
+          />
+        </div>
+        <img
+          style={{
+            width: "900px",
+            boxShadow: "2px 3px 9px 2px #dcdcdc",
+            borderRadius: "6px",
+          }}
+          className={`${showPlayer && "hidden"}`}
+          src="/screenshot.png"
+          onClick={() => onClickHero()}
+        ></img>
+      </div>
+      {/* <iframe
+        src="https://player.vimeo.com/video/527068688"
+        width="640"
+        height="360"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen
+      ></iframe> */}
+      {/* <ReactPlayer
+        vimeo={{ controls: true }}
+        // controls={true}
+        url="https://player.vimeo.com/video/527068688"
+      /> */}
+  </div>
+  );
+}
+
+export default function Hero() {
   return (
     <header>
       <div className="relative bg-white">
@@ -69,7 +121,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <div className="relative">
+      <div className="relative py-28 space-y-8">
         <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
           <div className="relative sm:overflow-hidden">
             <div className="absolute inset-0">
@@ -78,7 +130,7 @@ export default function Hero() {
                 style={{ "mix-blend-mode": "multiply;" }}
               ></div>
             </div>
-            <div className="relative px-4 py-4 sm:px-6 sm:py-4 lg:py-4 lg:px-8">
+            <div className="relative px-4 sm:px-6 lg:px-8">
               <h1 className="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
                 <span className="block text-gray-900">
                   Instant replay, meet X-ray vision.
@@ -96,55 +148,8 @@ export default function Hero() {
             </div>
           </div>
         </div>
+        <Video />
       </div>
-      <div className="flex justify-center">
-        <div id="replay-video" className={`${!showPlayer && "hidden"}`}></div>
-        <div className="relative">
-          <div
-            style={{
-              position: "absolute",
-              left: "50%",
-              top: "50%",
-            }}
-          >
-            <ReactSVG
-              // style={{
-              //   position: "absolute",
-              //   width: "40px",
-              // }}
-              width="40px"
-              height="40px"
-              wrapper="svg"
-              src="/play-btn.svg"
-            />
-          </div>
-          <img
-            style={{
-              width: "900px",
-              boxShadow: "2px 3px 9px 2px #dcdcdc",
-              borderRadius: "6px",
-            }}
-            className={`${showPlayer && "hidden"}`}
-            src="/screenshot.png"
-            onClick={() => onClickHero()}
-          ></img>
-        </div>
-        {/* <iframe
-          src="https://player.vimeo.com/video/527068688"
-          width="640"
-          height="360"
-          frameborder="0"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowfullscreen
-        ></iframe> */}
-        {/* <ReactPlayer
-          vimeo={{ controls: true }}
-          // controls={true}
-          url="https://player.vimeo.com/video/527068688"
-        /> */}
-      </div>
-
-      {/* <Carousel setShowVideo={setShowVideo} /> */}
     </header>
   );
 }
