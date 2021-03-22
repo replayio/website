@@ -62,15 +62,41 @@ export default function Features() {
                   </dd>
                 </div>
 
-                <div>
-                  <dt className="text-xl leading-6 font-medium text-gray-900">
-                    WE SHOULD PUT A TESTIMONIAL HERE
-                  </dt>
-                  <dd className="mt-2 text-xl text-gray-500">
-                    "It's true, I installed this on my team and it made a huge
-                    impact." -- Impressive person
-                  </dd>
-                </div>
+                <section>
+                  <div class="max-w-7xl mx-auto md:grid md:grid-cols-1 md:px-6 lg:px-8">
+                    <div class="py-6 px-4 sm:px-6 md:flex md:flex-col md:py-4 md:pl-0 md:pr-10 lg:pr-16">
+                      <blockquote class="mt-6 md:flex-grow md:flex md:flex-col">
+                        <div class="relative text-lg font-medium text-gray-900 md:flex-grow">
+                          <p class="relative py-0">
+                            "Replay is going to be amazing for library
+                            maintainers. We'll no longer need to ask for repro
+                            instructions with bug reports – we can just ask for
+                            the recording."
+                          </p>
+                        </div>
+                        <footer class="mt-8">
+                          <div class="flex items-start">
+                            <div class="flex-shrink-0 inline-flex rounded-full">
+                              <img
+                                class="h-12 w-12 rounded-full"
+                                src="https://replay.io/brianv.jpg"
+                                alt=""
+                              />
+                            </div>
+                            <div class="ml-4">
+                              <div class="text-base font-medium text-gray-500">
+                                Impressive human
+                              </div>
+                              <div class="text-base font-medium text-gray-400">
+                                CEO, Company name
+                              </div>
+                            </div>
+                          </div>
+                        </footer>
+                      </blockquote>
+                    </div>
+                  </div>
+                </section>
               </dl>
             </div>
           </div>
@@ -110,16 +136,38 @@ export default function Features() {
                   </dd>
                 </div>
 
-                <div>
-                  <dt className="text-xl leading-6 font-medium text-gray-900">
-                    WE SHOULD PUT A TESTIMONIAL HERE
-                  </dt>
-                  <dd className="mt-2 text-xl text-gray-500">
-                    "I work with highly sensitive data, so I can't use stuff
-                    that records everything. This is why I love Replay." --
-                    Impressive person
-                  </dd>
-                </div>
+                <section>
+                  <div class="max-w-7xl mx-auto md:grid md:grid-cols-1 md:px-6 lg:px-8">
+                    <div class="py-6 px-4 sm:px-6 md:flex md:flex-col md:py-4 md:pl-0 md:pr-10 lg:pr-16">
+                      <blockquote class="mt-6 md:flex-grow md:flex md:flex-col">
+                        <div class="relative text-lg font-medium text-gray-900 md:flex-grow">
+                          <p class="relative py-0">
+                            "I work with highly sensitive data etc etc!"
+                          </p>
+                        </div>
+                        <footer class="mt-8">
+                          <div class="flex items-start">
+                            <div class="flex-shrink-0 inline-flex rounded-full">
+                              <img
+                                class="h-12 w-12 rounded-full"
+                                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixqx=9n3ghHO8hO&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                alt=""
+                              />
+                            </div>
+                            <div class="ml-4">
+                              <div class="text-base font-medium text-gray-500">
+                                Impressive human
+                              </div>
+                              <div class="text-base font-medium text-gray-400">
+                                CEO, Company name
+                              </div>
+                            </div>
+                          </div>
+                        </footer>
+                      </blockquote>
+                    </div>
+                  </div>
+                </section>
               </dl>
             </div>
           </div>
@@ -159,15 +207,40 @@ export default function Features() {
                   </dd>
                 </div>
 
-                <div>
-                  <dt className="text-xl leading-6 font-medium text-gray-900">
-                    WE SHOULD PUT A TESTIMONIAL HERE
-                  </dt>
-                  <dd className="mt-2 text-xl text-gray-500">
-                    "It's true, the technology is absolutely nuts." --
-                    Impressive person
-                  </dd>
-                </div>
+                <section>
+                  <div class="max-w-7xl mx-auto md:grid md:grid-cols-1 md:px-6 lg:px-8">
+                    <div class="py-6 px-4 sm:px-6 md:flex md:flex-col md:py-4 md:pl-0 md:pr-10 lg:pr-16">
+                      <blockquote class="mt-6 md:flex-grow md:flex md:flex-col">
+                        <div class="relative text-lg font-medium text-gray-900 md:flex-grow">
+                          <p class="relative py-0">
+                            "Debugging intermittent tests in Replay will be a
+                            game changer. The debugger feels like hopping into
+                            Doc Brown’s DeLorean!"
+                          </p>
+                        </div>
+                        <footer class="mt-8">
+                          <div class="flex items-start">
+                            <div class="flex-shrink-0 inline-flex rounded-full">
+                              <img
+                                class="h-12 w-12 rounded-full"
+                                src="https://replay.io/gleb.png"
+                                alt=""
+                              />
+                            </div>
+                            <div class="ml-4">
+                              <div class="text-base font-medium text-gray-500">
+                                Impressive human
+                              </div>
+                              <div class="text-base font-medium text-gray-400">
+                                CEO, Company name
+                              </div>
+                            </div>
+                          </div>
+                        </footer>
+                      </blockquote>
+                    </div>
+                  </div>
+                </section>
               </dl>
             </div>
           </div>
