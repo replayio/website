@@ -1,12 +1,31 @@
-import BackgroundShapes from "./BackgroundShapes";
-import Header from "./Header";
-import React, { useState } from "react";
-import Carousel from "./Carousel";
-import VideoPlayer from "./VideoPlayer";
+import React, { useEffect, useState } from "react";
+import ReactPlayer from "react-player";
+import Player from "@vimeo/player";
+import { ReactSVG } from "react-svg";
 
 export default function Hero() {
-  const [showVideo, setShowVideo] = useState(false);
+  const [player, setPlayer] = useState(null);
+  const [showPlayer, setShowPlayer] = useState(false);
 
+  useEffect(() => {
+    var options = {
+      id: 527068688,
+      width: 900,
+      loop: false,
+      transparent: true,
+    };
+
+    const newPlayer = new Player("replay-video", options);
+    setPlayer(newPlayer);
+
+    newPlayer.on("play", function () {
+      console.log("played the video!");
+    });
+  }, []);
+  const onClickHero = () => {
+    setShowPlayer(true);
+    player.play();
+  };
   return (
     <header>
       <div className="relative bg-white">
@@ -76,6 +95,53 @@ export default function Hero() {
           </div>
         </div>
       </div>
+      <div className="flex justify-center">
+        <div id="replay-video" className={`${!showPlayer && "hidden"}`}></div>
+        <div className="relative">
+          <div
+            style={{
+              position: "absolute",
+              left: "50%",
+              top: "50%",
+            }}
+          >
+            <ReactSVG
+              // style={{
+              //   position: "absolute",
+              //   width: "40px",
+              // }}
+              width="40px"
+              height="40px"
+              wrapper="svg"
+              src="/play-btn.svg"
+            />
+          </div>
+          <img
+            style={{
+              width: "900px",
+              boxShadow: "2px 3px 9px 2px #dcdcdc",
+              borderRadius: "27px",
+            }}
+            className={`${showPlayer && "hidden"}`}
+            src="/screenshot.png"
+            onClick={() => onClickHero()}
+          ></img>
+        </div>
+        {/* <iframe
+          src="https://player.vimeo.com/video/527068688"
+          width="640"
+          height="360"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen
+        ></iframe> */}
+        {/* <ReactPlayer
+          vimeo={{ controls: true }}
+          // controls={true}
+          url="https://player.vimeo.com/video/527068688"
+        /> */}
+      </div>
+
       {/* <Carousel setShowVideo={setShowVideo} /> */}
     </header>
   );
