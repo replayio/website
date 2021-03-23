@@ -82,7 +82,7 @@ export default function Header() {
     <div className="relative">
       <div className="flex justify-between items-center max-w-7xl mx-auto px-4 py-6 sm:px-6 md:justify-start md:space-x-10 lg:px-8">
         <div className="flex justify-start lg:w-0 lg:flex-1">
-          <img src="https://replay.io/_next/image?url=%2Flogo.svg&w=64&q=75" />
+          <a href="/"> <img src="https://replay.io/_next/image?url=%2Flogo.svg&w=64&q=75" /></a>
         </div>
         <div className="hidden md:flex md:space-x-10">
           <Link href="https://www.notion.so/Docs-56758667f53a4d51b7c6fc7a641adb02">
