@@ -69,11 +69,11 @@ export default function Features() {
             <FeatureGroup title="Next level tech">
                 <Feature
                     title={`Reproducible bug recordings, every time`}
-                    content={`Replay captures every aspect of your application by recording browser input. That means your team no longer has to reproduce issue. Instead, you simply create a shareable link with everything you need, from the video to the line of code.`}
+                    content={`Replay records browser input at the lowest levels. This means your team has everything they need in a single link, from any element in the UI to any line of code.`}
                 />
                 <Feature
                     title={`Time-travel debugging, today`}
-                    content={`Replay is a fully-featured time-travel debugger, which means that you can skip the build step and jump right into debugging. Print statements can be added with one click, allowing you to understand your code's execution or inspect you application's state faster than ever before.`}
+                    content={`Because Replay is a time-travel debugger, you can debug any point in time without having to refresh the application and replicate the steps. Magic!`}
                 />
                 <Quote
                     name={`Gleb Bahmutov`}

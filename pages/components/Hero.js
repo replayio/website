@@ -136,9 +136,9 @@ export default function Hero() {
                                 </span>{" "}
                                 with your team, and{" "}
                                 <span className="text-blue-500 font-bold">
-                                    inspect
+                                    debug
                                 </span>{" "}
-                                your code with next-gen devtools.
+                                your application with next-gen devtools.
                             </p>
                         </div>
                     </div>
