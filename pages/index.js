@@ -2,7 +2,7 @@ import Head from "next/head";
 import Hero from "./components/Hero";
 import Testimonials from "./components/Testimonials";
 import Features from "./components/Features";
-import CallToAction from "./components/CallToAction";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -32,10 +32,12 @@ export default function Home() {
           }}
         />
       </Head>
-      <Hero />
-      {/* <Testimonials /> */}
-      <Features />
-      {/* <CallToAction /> */}
+      <div className="bg-gray-100">
+        <Hero />
+        <Features />
+        <Testimonials />
+        <Footer />
+      </div>
     </>
   );
 }

@@ -56,8 +56,8 @@ function Video() {
 
 export default function Hero() {
   return (
-    <header>
-      <div className="relative bg-white">
+    <header className="bg-gray-100">
+      <div className="relative">
         <div className="flex justify-between items-center max-w-7xl mx-auto px-4 py-6 sm:px-6 md:justify-start md:space-x-10 lg:px-8">
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <img src="https://replay.io/_next/image?url=%2Flogo.svg&w=64&q=75" />
@@ -91,7 +91,11 @@ export default function Hero() {
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
             <a
               href="#"
-              className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-500 hover:bg-blue-700"
+              className="typeform-share ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-500 hover:bg-blue-700"
+              href="https://form.typeform.com/to/jAaabLbi"
+              data-mode="drawer_right"
+              data-submit-close-delay="0"
+              target="_blank"
             >
               Join our beta list
             </a>
@@ -103,7 +107,7 @@ export default function Hero() {
           <div className="relative sm:overflow-hidden">
             <div className="absolute inset-0">
               <div
-                className="absolute inset-0 bg-white"
+                className="absolute inset-0 "
                 style={{ "mix-blend-mode": "multiply;" }}
               ></div>
             </div>

@@ -8,21 +8,22 @@ const testimonials = [
     body:
       "The hardest part of debugging is first understanding the problem. Replay gives you powerful tools for dissecting problems so bugs get fixed fast—and stay fixed.",
   },
-  {
-    name: "Brian Vaughn",
-    title: "React Maintainer",
-    avatar: "/brianv.jpg",
-    body:
-      "Replay is going to be amazing for library maintainers. We'll no longer need to ask for repro instructions with bug reports – we can just ask for the recording.",
-  },
 
-  {
-    name: "Gleb Bahmutov",
-    title: "Cypress Distinguished Engineer",
-    avatar: "/gleb.png",
-    body:
-      "Debugging intermittent tests in Replay will be a game changer. The debugger feels like hopping into Doc Brown’s DeLorean!",
-  },
+  // {
+  //   name: "Brian Vaughn",
+  //   title: "React Maintainer",
+  //   avatar: "/brianv.jpg",
+  //   body:
+  //     "Replay is going to be amazing for library maintainers. We'll no longer need to ask for repro instructions with bug reports – we can just ask for the recording.",
+  // },
+
+  // {
+  //   name: "Gleb Bahmutov",
+  //   title: "Cypress Distinguished Engineer",
+  //   avatar: "/gleb.png",
+  //   body:
+  //     "Debugging intermittent tests in Replay will be a game changer. The debugger feels like hopping into Doc Brown’s DeLorean!",
+  // },
 
   {
     name: "Harald K.",
@@ -140,9 +141,9 @@ export default function Testimonials() {
   }, [offset]);
 
   return (
-    <div className="relative testimonials py-20">
+    <div className="relative testimonials py-20 bg-gray-100">
       <div
-        className="absolute  bg-gray-50 pointer-events-none top-0"
+        className="absolute pointer-events-none top-0"
         style={{ width: "100%", height: "40%" }}
       ></div>
       <div className="flex overflow-hidden -my-8">
