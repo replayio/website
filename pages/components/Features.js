@@ -33,7 +33,7 @@ function FeatureGroup({ title, children }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <div className="lg:grid lg:grid-cols-3 lg:gap-24">
                 <div>
-                    <h2 className="text-5xl font-extrabold text-gray-900">
+                    <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900">
                         {title}
                     </h2>
                 </div>

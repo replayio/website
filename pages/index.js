@@ -3,14 +3,15 @@ import Hero from "./components/Hero";
 import Testimonials from "./components/Testimonials";
 import Features from "./components/Features";
 import Footer from "./components/Footer";
+import Header from "./components/Header";
 
 export default function Home() {
-    return (
-        <>
-            <Head>
-                <script
-                    dangerouslySetInnerHTML={{
-                        __html: ` (function () {
+  return (
+    <>
+      <Head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: ` (function () {
             var qs,
               js,
               q,
@@ -29,15 +30,16 @@ export default function Home() {
               q.parentNode.insertBefore(js, q);
             }
           })();`
-                    }}
-                />
-            </Head>
-            <div className="bg-gray-100 space-y-24">
-                <Hero />
-                <Features />
-                <Testimonials />
-                <Footer />
-            </div>
-        </>
-    );
+          }}
+        />
+      </Head>
+      <div className="bg-gray-100 space-y-24">
+        <Header />
+        <Hero />
+        <Features />
+        <Testimonials />
+        <Footer />
+      </div>
+    </>
+  );
 }
