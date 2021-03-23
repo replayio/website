@@ -1,9 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Player from "@vimeo/player";
 import { ReactSVG } from "react-svg";
 
+function useMedia(query) {
+  if (!window) {
+    return null;
+  }
+
+  const [matches, setMatches] = useState(window.matchMedia(query).matches);
+
+  // cDM, cDU
+  useEffect(() => {
+    let media = window.matchMedia(query);
+    if (media.matches !== matches) {
+      setMatches(media.matches);
+    }
+    let listener = () => setMatches(media.matches);
+    media.addListener(listener);
+    return () => media.removeListener();
+  }, [query]);
+
+  return matches;
+}
+
 function Video() {
   const [player, setPlayer] = useState(null);
+  const imgNode = useRef(null);
   const [showPlayer, setShowPlayer] = useState(false);
   const onClickHero = () => {
     setShowPlayer(true);
@@ -11,9 +33,11 @@ function Video() {
   };
 
   useEffect(() => {
+    const width = imgNode.current.getBoundingClientRect().width;
+
     var options = {
       id: 527068688,
-      width: 900,
+      width,
       loop: false,
       transparent: true
     };
@@ -41,6 +65,7 @@ function Video() {
           }}
           className={`${showPlayer && "hidden"}`}
           src="/screenshot.png"
+          ref={imgNode}
         />
         {!showPlayer ? (
           <div className="w-min absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-90">
@@ -64,7 +89,7 @@ export default function Hero() {
 
   return (
     <div className="bg-gray-100">
-      <div className="relative py-16 space-y-8">
+      <div className="relative md:py-16 space-y-8">
         <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
           <div className="relative sm:overflow-hidden">
             <div className="absolute inset-0">

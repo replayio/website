@@ -27,18 +27,20 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <div className="space-y-24">
+    <div className="space-y-16">
       <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 text-center px-4 lg:hidden">
         What people are saying
       </h2>
-      <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 grid gap-x-4 sm:grid-rows-3 lg:grid-rows-1 sm:grid-cols-1 lg:grid-cols-3 ">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 grid gap-y-12 gap-x-16 sm:grid-rows-3 lg:grid-rows-1 sm:grid-cols-1 lg:grid-cols-3 ">
         {testimonials.map((testimonial) => (
-          <Quote
-            name={testimonial.name}
-            picture={testimonial.avatar}
-            position={testimonial.title}
-            content={testimonial.body}
-          />
+          <div class="max-w-7xl mx-auto md:grid md:grid-cols-1 ">
+            <Quote
+              name={testimonial.name}
+              picture={testimonial.avatar}
+              position={testimonial.title}
+              content={testimonial.body}
+            />
+          </div>
         ))}
       </div>
     </div>
