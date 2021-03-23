@@ -31,7 +31,7 @@ function Video() {
         <div className="flex justify-center pb-12">
             <div
                 id="replay-video"
-                className={`${!showPlayer && "hidden"}`}
+                className={`${!showPlayer && "hidden"} overflow-hidden rounded-md`}
             ></div>
             <div
                 className="relative cursor-pointer"
