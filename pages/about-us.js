@@ -2,8 +2,10 @@ import Head from "next/head";
 import Header from "./components/Header";
 import Team from "./components/about-us/Team";
 import Content from "./components/about-us/Content";
-import CallToAction from "./components/CallToAction";
+
 import BackgroundShapes from "./components/BackgroundShapes";
+import Footer from "./components/Footer";
+
 
 export default function Home() {
   return (
@@ -51,7 +53,7 @@ export default function Home() {
             </p>
           </Content>
           <Team />
-          <CallToAction />
+          <Footer />
         </div>
       </div>
     </>
