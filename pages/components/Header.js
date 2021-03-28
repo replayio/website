@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React, { useState } from "react";
-
+import Flyout from "./Flyout"
 function Link({ href, children }) {
   return (
     <a href={href} className="font-medium text-gray-500 hover:text-gray-900">
@@ -66,7 +66,7 @@ function HeaderMenu({ showDropdown, toggleDropdown }) {
             <MenuItem href="https://www.notion.so/Docs-56758667f53a4d51b7c6fc7a641adb02">
               Docs
             </MenuItem>
-
+            <MenuItem href="/about-us"> Uses Cases</MenuItem>
             <MenuItem href="/about-us"> About Us</MenuItem>
           </div>
         </div>
@@ -88,7 +88,7 @@ export default function Header() {
           <Link href="https://www.notion.so/Docs-56758667f53a4d51b7c6fc7a641adb02">
             Docs
           </Link>
-
+          <Flyout />
           <Link href="/about-us">About Us</Link>
         </div>
         <div className="flex items-center md:hidden absolute right-0">
