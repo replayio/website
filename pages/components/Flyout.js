@@ -13,7 +13,12 @@ const items = [
     href:"https://www.notion.so/replayio/Use-Cases-e64fea3c289e40998a0646c8530d3fe4#599eada9069243c8995f6d1dda4d95ef"
   },
   {
-    header: "Replays on Slack 👋", 
+    header: "Eye Sores 😱", 
+    subtitle: "Record janky flows so you can create buttery smooth experiences.", 
+    href:"https://www.notion.so/replayio/Use-Cases-e64fea3c289e40998a0646c8530d3fe4#0bf6455f27c14e2487585f7be770c02a"
+  },
+  {
+    header: "Slack Conversations 👋", 
     subtitle: "Get feedback on a new feature or advice on a pesky problem.", 
     href:"https://www.notion.so/replayio/Use-Cases-e64fea3c289e40998a0646c8530d3fe4#ff84f026c54a434fa66097da071fa856"
   },
