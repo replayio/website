@@ -79,7 +79,7 @@ export default function Header() {
   const toggleDropdown = () => setShowDropdown(!showDropdown);
 
   return (
-    <div className="relative">
+    <div className="relative ">
       <div className="flex justify-between items-center max-w-7xl mx-auto px-4 py-6 sm:px-6 md:justify-start md:space-x-10 lg:px-8">
         <div className="flex justify-start lg:w-0 lg:flex-1">
           <a href="/"> <img src="https://replay.io/_next/image?url=%2Flogo.svg&w=64&q=75" /></a>

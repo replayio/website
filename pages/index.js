@@ -33,9 +33,11 @@ export default function Home() {
           }}
         />
       </Head>
-      <div className="bg-gray-100 space-y-24">
+      <div className="space-y-24">
+        <div className="bg-gray-50">
         <Header />
         <Hero />
+        </div>
         <Features />
         <Testimonials />
         <Footer />

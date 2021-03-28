@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
         <div>
-            <div className="max-w-4xl mx-auto pb-8 px-4 sm:px-6 sm:pb-12 sm:flex sm:items-center sm:flex-col lg:max-w-7xl lg:px-8 lg:flex lg:items-center lg:justify-between">
+            <div className="max-w-4xl mx-auto pb-8 px-4 sm:px-6 sm:pb-12 sm:flex sm:items-center sm:flex-col lg:max-w-7xl lg:px-8 lg:flex lg:flex-row lg:justify-between">
                 <h2 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                     <span className="block">Interested?</span>
                 </h2>

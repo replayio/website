@@ -84,11 +84,9 @@ function Video() {
 }
 
 export default function Hero() {
-  const [showDropdown, setShowDropdown] = useState(false);
-  const toggleDropdown = () => setShowDropdown(!showDropdown);
 
   return (
-    <div className="bg-gray-100">
+    <div  style={{marginBottom: "-340px"}}>
       <div className="relative md:py-16 space-y-8">
         <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
           <div className="relative sm:overflow-hidden">
