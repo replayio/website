@@ -51,7 +51,7 @@ function Video() {
   }, []);
 
   return (
-    <div className="flex justify-center pb-12">
+    <div className="flex justify-center pb-12 mx-4 lg:mx-0">
       <div
         id="replay-video"
         className={`${!showPlayer && "hidden"} overflow-hidden rounded-md`}
