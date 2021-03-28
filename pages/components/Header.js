@@ -66,7 +66,7 @@ function HeaderMenu({ showDropdown, toggleDropdown }) {
             <MenuItem href="https://www.notion.so/Docs-56758667f53a4d51b7c6fc7a641adb02">
               Docs
             </MenuItem>
-            <MenuItem href="/about-us"> Uses Cases</MenuItem>
+            <MenuItem href="https://www.notion.so/replayio/Use-Cases-e64fea3c289e40998a0646c8530d3fe4"> Uses Cases</MenuItem>
             <MenuItem href="/about-us"> About Us</MenuItem>
           </div>
         </div>
