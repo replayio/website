@@ -8,7 +8,7 @@ const items = [
     href:"https://www.notion.so/replayio/Use-Cases-e64fea3c289e40998a0646c8530d3fe4#5325bd872731431bae8a3aff1e5c536e" 
   },
   {
-    header:"Flakey Tests 🍞" , 
+    header:"End-to-End Tests 🍞" , 
     subtitle: "Record end-to-end tests so you never have to reproduce a flakey test again.", 
     href:"https://www.notion.so/replayio/Use-Cases-e64fea3c289e40998a0646c8530d3fe4#599eada9069243c8995f6d1dda4d95ef"
   },
