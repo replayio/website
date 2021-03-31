@@ -13,7 +13,7 @@ const items = [
     href:"https://www.notion.so/replayio/Use-Cases-e64fea3c289e40998a0646c8530d3fe4#599eada9069243c8995f6d1dda4d95ef"
   },
   {
-    header: "Eye Sores 😱", 
+    header: "UI Elements 😱", 
     subtitle: "Record janky flows so you can create buttery smooth experiences.", 
     href:"https://www.notion.so/replayio/Use-Cases-e64fea3c289e40998a0646c8530d3fe4#0bf6455f27c14e2487585f7be770c02a"
   },

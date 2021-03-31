@@ -63,8 +63,8 @@ function HeaderMenu({ showDropdown, toggleDropdown }) {
           aria-labelledby="main-menu"
         >
           <div className="px-2 pt-2 pb-3 space-y-1" role="none">
-            <MenuItem href="https://www.notion.so/Docs-56758667f53a4d51b7c6fc7a641adb02">Workflow</MenuItem>
-            <MenuItem href="https://www.notion.so/Docs-56758667f53a4d51b7c6fc7a641adb02">Technology</MenuItem>
+            {/* <MenuItem href="https://www.notion.so/Docs-56758667f53a4d51b7c6fc7a641adb02">Workflow</MenuItem> */}
+            <MenuItem href="https://www.notion.so/replayio/Technology-cc65abf5eb11443586abb4aa04345985">Technology</MenuItem>
             <MenuItem href="https://www.notion.so/replayio/Use-Cases-e64fea3c289e40998a0646c8530d3fe4"> Uses Cases</MenuItem>
             <MenuItem href="/about-us"> About Us</MenuItem>
           </div>
@@ -85,9 +85,9 @@ export default function Header() {
         </div>
         <div className="hidden md:flex md:space-x-10 ">
           <Link href="https://www.notion.so/Docs-56758667f53a4d51b7c6fc7a641adb02">
-            Debugging
+            Docs
           </Link>
-          <Link href="https://www.notion.so/Docs-56758667f53a4d51b7c6fc7a641adb02">
+          <Link href="https://www.notion.so/replayio/Technology-cc65abf5eb11443586abb4aa04345985">
             Technology
           </Link>
           <Flyout />
