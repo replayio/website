@@ -10,9 +10,12 @@ export default function Download() {
         className="flex flex-col align-center my-12"
         style={{ flex: "1 0 auto" }}
       >
-        <div className="max-w-7xl mx-auto text-center py-8 my-12 px-4 sm:px-1 ">
+        <div className="max-w-7xl mx-auto text-center py-8 my-12 flex-col justify-center px-4 sm:px-1 ">
           <h2 className="text-3xl">👋</h2>
 
+          <p className="mt-4  text-center text-gray-500">
+            Replay is currently in closed beta, <br /> so please do not download Replay unless you have been invited.
+          </p>
           <div className="mt-12 flex justify-center">
             <div class="flex space-x-5">
               <div className="inline-flex rounded-md shadow">
