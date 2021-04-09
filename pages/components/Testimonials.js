@@ -8,7 +8,7 @@ const testimonials = [
   },
   {
     name: "Harald K.",
-    title: "Product Manager, VS Code",
+    title: "Senior Program Manager, VS Code",
     avatar: "/harald.jpg",
     body:
       "Replay is one of these experiences that first feels like magic – but after squashing your first bugs with it, you will quickly wonder how you ever worked without it."
@@ -31,6 +31,12 @@ const testimonials = [
     avatar: "/geoffrey.jpg",
     body:
       "Using Replay feels like living in the future. The ability to quickly find all the places that a print statement triggered and move between them is so useful for understanding what's happening.	"
+  },
+  {
+    name: "Desigan Chinniah",
+    title: "Former Director of Platform Relations at Firefox",
+    avatar: "/dees.jpeg",
+    body: "After a decade of working on browser engines and web standards. I can confidently say that Replay will change the way teams engineer their code and collaborate across the entire organization."
   }
 ];
 
