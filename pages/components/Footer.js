@@ -17,6 +17,9 @@ export default function Footer() {
                     </a>
                 </div>
             </div>
+            <div className="flex-row flex align-center border-t-2 border-blue-500 py-2 justify-center text-gray-700">
+                <a href="/privacy.html">Privacy Policy</a>
+            </div>
         </div>
     );
 }
