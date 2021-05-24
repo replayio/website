@@ -9,7 +9,7 @@ export default function WelcomeToReplay() {
               </div>
             </h1>
             <h2 style={{width: "660px"}} className="text-xl mt-4 text-gray-600">
-              The new way to record your website and debug after the fact.
+              The new way to record, replay, and debug web applications.
             </h2>
 
             <a
