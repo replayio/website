@@ -84,9 +84,8 @@ function Video() {
 }
 
 export default function Hero() {
-
   return (
-    <div  style={{marginBottom: "-340px"}}>
+    <div style={{ marginBottom: "-340px" }}>
       <div className="relative md:py-16 space-y-8">
         <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
           <div className="relative sm:overflow-hidden">
@@ -99,17 +98,12 @@ export default function Hero() {
             <div className="relative px-4 sm:px-6 lg:px-8">
               <h1 className="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
                 <span className="block text-gray-900">
-                  Instant replay, meet X-ray vision.
+                  Record bugs, not video
                 </span>
               </h1>
               <p className="mt-6 max-w-lg mx-auto text-center text-xl text-gray-500 sm:max-w-3xl my-8">
-                Replay is a browser that lets you{" "}
-                <span className="text-blue-500 font-bold">record</span> your
-                website,{" "}
-                <span className="text-blue-500 font-bold">discuss</span> with
-                your team, and{" "}
-                <span className="text-blue-500 font-bold">debug</span> your
-                application with next-gen devtools.
+                Replay is a browser that records websites so your team can fix
+                bugs faster.
               </p>
             </div>
           </div>

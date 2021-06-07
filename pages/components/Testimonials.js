@@ -24,20 +24,6 @@ const testimonials = [
     title: "Developer Products, Stripe",
     avatar: "/kenneth.jpeg",
     body: `Replay is a true game-changer that enables every developer to do time-travel debugging.<br /><br /> Their work is the most significant leap forward for (web) debugging since we introduced the step debugger.`
-  },
-  {
-    name: "Geoffrey Litt",
-    title: "PhD, programming tools",
-    avatar: "/geoffrey.jpg",
-    body:
-      "Using Replay feels like living in the future. The ability to quickly find all the places that a print statement triggered and move between them is so useful for understanding what's happening.	"
-  },
-  {
-    name: "Desigan Chinniah",
-    title: "Former Director of Platform Relations at Firefox",
-    avatar: "/dees.jpeg",
-    body:
-      "After a decade of working on browser engines and web standards. I can confidently say that Replay will change the way teams engineer their code and collaborate across the entire organization."
   }
 ];
 
