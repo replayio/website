@@ -91,7 +91,7 @@ export default function Features() {
         />
         <Feature
           title={`Comment on anything`}
-          content={`With Replay, you can add a comment on a place in the video, a point in time, a mouse event, or even a line of code. And everyone on your team can jump in using their favourite browser.`}
+          content={`With Replay, you can add a comment on a place in the video, a point in time, a mouse event, or even a line of code. And everyone on your team can jump in using their favorite browser.`}
         />
         <Feature
           title={`Add print statements anywhere`}

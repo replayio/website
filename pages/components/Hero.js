@@ -98,7 +98,7 @@ export default function Hero() {
             <div className="relative px-4 sm:px-6 lg:px-8">
               <h1 className="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
                 <span className="block text-gray-900">
-                  Record bugs, not video
+                  Capture bugs, not video
                 </span>
               </h1>
               <p className="mt-6 max-w-lg mx-auto text-center text-xl text-gray-500 sm:max-w-3xl my-8">
