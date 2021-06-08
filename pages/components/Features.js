@@ -1,32 +1,37 @@
+import Image from "next/image";
 
 function SubHeader() {
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6">
       <div className="text-center">
         <h2 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-          <span className="text-black block">A little different.</span>
-          <span className="text-blue-500 block">A whole lot better.</span>
+          <span className="text-black block">Record Once</span>
+          <span className="text-blue-500 block">Never Reproduce</span>
         </h2>
       </div>
     </div>
   );
 }
 
-function Feature({ title, content }) {
+function Feature({ title, content, type }) {
+  const headerColor = type == "dark" ? "text-white" : "text-gray-900"
+  const bodyColor = type == "dark" ? "text-white" : "text-gray-900"
   return (
     <div>
-      <dt className="text-xl leading-6 font-semibold text-gray-900">{title}</dt>
-      <dd className="mt-2 text-xl text-gray-500">{content}</dd>
+      <dt className={`text-xl leading-6 font-semibold ${headerColor}`} >{title}</dt>
+      <dd className={`mt-2 text-xl ${bodyColor}`}>{content}</dd>
     </div>
   );
 }
 
-function FeatureGroup({ title, children }) {
+function FeatureGroup({ title, children, type }) {
+  const headerColor = type == "dark" ? "text-white" : "text-gray-900"
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6">
       <div className="lg:grid lg:grid-cols-3 lg:gap-24">
         <div>
-          <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900">
+          <h2 className={`text-4xl lg:text-5xl font-extrabold ${headerColor}`}>
             {title}
           </h2>
         </div>
@@ -77,8 +82,29 @@ function FeatureQuote({ name, position, picture, style, content }) {
 
 export default function Features() {
   return (
-    <main className="bg-white space-y-32" style={{paddingTop: "300px"}}>
-      <SubHeader />
+    <main className="bg-white space-y-16" style={{paddingTop: "300px"}}>
+      {/* <SubHeader /> */}
+      <div className="bg-blue-500 py-32">
+      <FeatureGroup type="dark" title="How Replay Works">
+        <Feature
+          type="dark"
+          title={`Record everything`}
+          content={`Replay records everything you need to fix bugs in a single link.`}
+        />
+        <Feature
+          type="dark"
+          title={`Comment on anything`}
+          content={`Add a comment in the video, a mouse event, or a line of code.`}
+        />
+        <Feature
+          type="dark"
+          title={`Debug with Dev Tools`}
+          content={`Add a print statement and see the logs immediately in the console.`}
+        />
+
+      </FeatureGroup>        
+      </div>
+      <div className=" my-32 ">
       <FeatureGroup title="Built for teams">
         <Feature
           title={`The universal translator your team has been missing`}
@@ -95,6 +121,10 @@ export default function Features() {
           content={`Replay is going to be amazing for library maintainers. We'll no longer need to ask for repro instructions with bug reports – we can just ask for the recording.`}
         />
       </FeatureGroup>
+      </div>
+      <div className=" my-32 ">
+
+
       <FeatureGroup title="Next level tech">
         <Feature
           title={`Reproducible bug recordings, every time`}
@@ -111,6 +141,7 @@ export default function Features() {
           content={`Debugging intermittent tests in Replay will be a game changer. The debugger feels like hopping into Doc Brown’s DeLorean!`}
         />
       </FeatureGroup>
+      </div>
     </main>
   );
 }

@@ -82,7 +82,7 @@ function Testimonial({ testimonial }) {
 export default function Testimonials() {
   return (
     <>
-      <section className="bg-blue-500">
+      <section className="bg-blue-500 my-32" style={{marginTop:"64px"}}>
         <div className="max-w-7xl mx-auto md:grid md:grid-cols-2 md:px-6 lg:px-8">
           {testimonials.map((testimonial) => (
             <Testimonial testimonial={testimonial} />
