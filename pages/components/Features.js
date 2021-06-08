@@ -88,8 +88,8 @@ export default function Features() {
       <FeatureGroup type="dark" title="How Replay Works">
         <Feature
           type="dark"
-          title={`Record everything`}
-          content={`Replay records everything you need to fix bugs in a single link.`}
+          title={`Record sessions`}
+          content={`Capture the context you need to fix bugs in a single link.`}
         />
         <Feature
           type="dark"
@@ -98,7 +98,7 @@ export default function Features() {
         />
         <Feature
           type="dark"
-          title={`Debug with Dev Tools`}
+          title={`Debug with DevTools`}
           content={`Add a print statement and see the logs immediately in the console.`}
         />
 

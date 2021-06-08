@@ -84,9 +84,8 @@ function Video() {
 }
 
 export default function Hero() {
-
   return (
-    <div  style={{marginBottom: "-340px"}}>
+    <div style={{ marginBottom: "-340px" }}>
       <div className="relative md:py-16 space-y-8">
         <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
           <div className="relative sm:overflow-hidden">
@@ -99,11 +98,12 @@ export default function Hero() {
             <div className="relative px-4 sm:px-6 lg:px-8">
               <h1 className="text-center text-2xl font-extrabold tracking-tight sm:text-3xl lg:text-5xl">
                 <span className="block text-gray-900">
-                 Capture bugs, not video
+                  Capture bugs, not video
                 </span>
               </h1>
               <p className="mt-6 max-w-lg mx-auto text-center text-xl text-gray-500 sm:max-w-3xl my-8">
-              Replay is a browser that records websites so your team can fix bugs faster.
+                Replay is a browser that records websites so your team can fix
+                bugs faster.
               </p>
             </div>
           </div>
