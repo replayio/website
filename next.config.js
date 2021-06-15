@@ -3,7 +3,7 @@ const host =
 const directories = ["dist", "images", "downloads", "driver", "protocol"];
 const devToolsAppPath = "view";
 const files = [devToolsAppPath];
-const devToolsPaths = ["browser"];
+const devToolsPaths = ["staging"];
 
 const rewrites = [];
 const headers = [];
@@ -11,6 +11,11 @@ const headers = [];
 rewrites.push({
   source: `/protocol/tot/:domain`,
   destination: `${host}/protocol/tot/:domain/`
+});
+
+rewrites.push({
+  source: `/view`,
+  destination: `/maintenance`
 });
 
 rewrites.push({
