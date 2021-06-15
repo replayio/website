@@ -1,9 +1,12 @@
 const host =
   process.env.REPLAY_DEVTOOLS_HOST || "https://dc3tvimjwmdjm.cloudfront.net";
 const directories = ["dist", "images", "downloads", "driver", "protocol"];
+
+let maintenance = true
+
 const devToolsAppPath = "view";
 const files = [devToolsAppPath];
-const devToolsPaths = ["staging"];
+const devToolsPaths = [maintenance ? "staging" : "browser"];
 
 const rewrites = [];
 const headers = [];
@@ -13,10 +16,12 @@ rewrites.push({
   destination: `${host}/protocol/tot/:domain/`
 });
 
-rewrites.push({
-  source: `/view`,
-  destination: `/maintenance`
-});
+if (maintenance) {
+  rewrites.push({
+    source: `/view`,
+    destination: `/maintenance`
+  });
+}
 
 rewrites.push({
   source: "/discord",
