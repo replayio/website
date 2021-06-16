@@ -98,10 +98,10 @@ export default function Features() {
     <main className="bg-white space-y-16" style={{ paddingTop: "360px" }}>
       {/* <SubHeader /> */}
       <div className="my-0 sm:my-12">
-        <FeatureGroup title="Capture the whole session">
+        <FeatureGroup title="Capture the session">
           <Feature
             title={``}
-            content={`Replay records the browser. This means when you view a replay, you won't need to reproduce a thing. We’ve got it all captured, so you can see what really happened.`}
+            content={`Replay records the low-level events needed to replay the browser as it ran before. You'll never need to repro again!`}
             picture={"/recording.png"}
           />
         </FeatureGroup>
@@ -110,7 +110,7 @@ export default function Features() {
         <FeatureGroup title="Collaborate in context">
           <Feature
             title={``}
-            content={`With Replay, you can add a comment in the video, an event, or even a line of code. Then you can share with your team using a simple link to get everyone on the same page.`}
+            content={`When you share a replay with the team, they have the context needed to discuss what went wrong and why it happened. `}
             picture={"/viewing.png"}
           />
         </FeatureGroup>
@@ -119,7 +119,7 @@ export default function Features() {
         <FeatureGroup title="Debug with DevTools">
           <Feature
             title={``}
-            content={`With Replay, you can view console logs, inspect elements, and even add print statements after the fact. It's all there so you can find the bugs faster.`}
+            content={`Replays include the DevTools you expect, so that you can view console logs, inspect elements, and even add print statements after the fact. `}
             picture={"/devtools.png"}
           />
         </FeatureGroup>
