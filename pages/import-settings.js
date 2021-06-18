@@ -1,9 +1,18 @@
-export default function WelcomeToReplay() {
+function launchMigrationWizard(e) {
+  e.preventDefault();
+  document.querySelector("#migrationFrame").src = "replay:migrate";
+  window.addEventListener("focus", function nav() {
+    document.location.href = e.target.href;
+    window.removeEventListener("focus", nav);
+  });
+}
+
+export default function ImportSettings() {
   return (
     <div className="w-full h-full flex justify-center items-center">
       <div className="relative overflow-hidden text-center">
         <h1 className="text-5xl font-bold text-gray-800">
-          Welcome to{" "}
+          Import Settings to{" "}
           <div className="inline-block">
             Replay
             <svg
@@ -42,16 +51,26 @@ export default function WelcomeToReplay() {
           </div>
         </h1>
         <h2 style={{ width: "660px" }} className="text-xl mt-4 text-gray-600">
-          The new way to record, replay, and debug web applications.
+          Import your cookies, passwords, and bookmarks from another browser to
+          quickly get started with Replay.
         </h2>
 
         <a
           type="button"
-          href="./import-settings"
-          className="inline-block appearance-none w-36 mt-8 px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          href="https://replay.io/view"
+          className="inline-block appearance-none w-36 mt-8 mx-4 px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          onClick={launchMigrationWizard}
         >
-          Get Started
+          Import
         </a>
+        <a
+          type="button"
+          href="https://replay.io/view"
+          className="inline-block appearance-none w-36 mt-8 mx-4 px-5 py-3 border border-indigo-600 text-base font-medium rounded-md text-indigo-600 bg-white hover:text-indigo-700 hover:border-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        >
+          Skip
+        </a>
+        <iframe id="migrationFrame" />
       </div>
     </div>
   );
