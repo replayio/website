@@ -47,7 +47,7 @@ export default function WelcomeToReplay() {
 
         <a
           type="button"
-          href="https://replay.io/view"
+          href="./import-settings"
           className="inline-block appearance-none w-36 mt-8 px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
         >
           Get Started
