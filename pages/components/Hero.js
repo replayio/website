@@ -105,6 +105,17 @@ export default function Hero() {
                 Replay is a browser that records all of the context you need to
                 fix bugs faster.
               </p>
+              <div className="flex  justify-center">
+                <a
+                  className="inline-flex typeform-share text-center whitespace-nowrap px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-500 hover:bg-blue-700"
+                  href="https://form.typeform.com/to/jAaabLbi"
+                  data-mode="drawer_right"
+                  data-submit-close-delay="0"
+                  target="_blank"
+                >
+                  Join our beta list
+                </a>
+              </div>
             </div>
           </div>
         </div>

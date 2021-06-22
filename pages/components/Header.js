@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React, { useState } from "react";
-import Flyout from "./Flyout"
+import Flyout from "./Flyout";
 function Link({ href, children }) {
   return (
     <a href={href} className="font-medium text-gray-500 hover:text-gray-900">
@@ -64,8 +64,13 @@ function HeaderMenu({ showDropdown, toggleDropdown }) {
         >
           <div className="px-2 pt-2 pb-3 space-y-1" role="none">
             {/* <MenuItem href="https://www.notion.so/Docs-56758667f53a4d51b7c6fc7a641adb02">Workflow</MenuItem> */}
-            <MenuItem href="https://www.notion.so/replayio/Technology-cc65abf5eb11443586abb4aa04345985">Technology</MenuItem>
-            <MenuItem href="https://www.notion.so/replayio/Use-Cases-e64fea3c289e40998a0646c8530d3fe4"> Uses Cases</MenuItem>
+            <MenuItem href="https://www.notion.so/replayio/Technology-cc65abf5eb11443586abb4aa04345985">
+              Technology
+            </MenuItem>
+            <MenuItem href="https://www.notion.so/replayio/Use-Cases-e64fea3c289e40998a0646c8530d3fe4">
+              {" "}
+              Uses Cases
+            </MenuItem>
             <MenuItem href="/about-us"> About Us</MenuItem>
           </div>
         </div>
@@ -81,7 +86,10 @@ export default function Header() {
     <div className="relative ">
       <div className="flex justify-between items-center max-w-7xl mx-auto px-4 py-6 sm:px-6 md:justify-start md:space-x-10 lg:px-8">
         <div className="flex justify-start lg:w-0 lg:flex-1">
-          <a href="/"> <img src="https://replay.io/_next/image?url=%2Flogo.svg&w=64&q=75" /></a>
+          <a href="/">
+            {" "}
+            <img src="https://replay.io/_next/image?url=%2Flogo.svg&w=64&q=75" />
+          </a>
         </div>
         <div className="hidden md:flex md:space-x-10 ">
           <Link href="https://www.notion.so/Docs-56758667f53a4d51b7c6fc7a641adb02">
@@ -121,13 +129,10 @@ export default function Header() {
         </div>
         <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
           <a
-            className="typeform-share ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-500 hover:bg-blue-700"
-            href="https://form.typeform.com/to/jAaabLbi"
-            data-mode="drawer_right"
-            data-submit-close-delay="0"
-            target="_blank"
+            className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-gray-600  hover:bg-gray-100 borer-1 border-r-2 border-gray-200"
+            href="https://replay.io/view"
           >
-            Join our beta list
+            Login
           </a>
         </div>
       </div>
