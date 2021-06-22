@@ -1,31 +1,10 @@
 const testimonials = [
   {
-    name: "Brian Vaughn",
-    title: "React Maintainer",
-    avatar: "/brianv.jpg",
-    body:
-      "Replay is going to be amazing for library maintainers. We'll no longer need to ask for repro instructions with bug reports – we can just ask for the recording."
-  },
-  {
     name: "Gleb Bahmutov",
     title: "Cypress Distinguished Engineer",
     avatar: "/gleb.png",
     body:
       "Debugging intermittent tests in Replay will be a game changer. The debugger feels like hopping into Doc Brown’s DeLorean!"
-  },
-  {
-    name: "Kyle Matthews",
-    title: "Founder/CEO, Gatsby",
-    avatar: "/kyle.jpg",
-    body:
-      "The hardest part of debugging is first understanding the problem. Replay gives you powerful tools for dissecting problems so bugs get fixed fast—and stay fixed."
-  },
-  {
-    name: "Harald K.",
-    title: "Senior Program Manager, VS Code",
-    avatar: "/harald.jpg",
-    body:
-      "Replay is one of these experiences that first feels like magic – but after squashing your first bugs with it, you will quickly wonder how you ever worked without it."
   },
   {
     name: "Rachel Nabors",

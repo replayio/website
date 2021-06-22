@@ -1,18 +1,65 @@
 import Image from "next/image";
+const testimonials = [
+  {
+    name: "Kyle Matthews",
+    title: "Founder/CEO, Gatsby",
+    avatar: "/kyle.jpg",
+    body:
+      "The hardest part of debugging is first understanding the problem. Replay gives you powerful tools for dissecting problems so bugs get fixed fast—and stay fixed."
+  },
+  {
+    name: "Brian Vaughn",
+    title: "React Maintainer",
+    avatar: "/brianv.jpg",
+    body:
+      "Replay is going to be amazing for library maintainers. We'll no longer need to ask for repro instructions with bug reports – we can just ask for the recording."
+  },
+  {
+    name: "Harald K.",
+    title: "Senior Program Manager, VS Code",
+    avatar: "/harald.jpg",
+    body:
+      "Replay is one of these experiences that first feels like magic – but after squashing your first bugs with it, you will quickly wonder how you ever worked without it."
+  }
+];
 
-function SubHeader() {
+function Testimonial({ testimonial }) {
+  const { body, title, avatar, name } = testimonial;
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6">
-      <div className="text-center">
-        <h2 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-          <span className="text-black block">Record Once</span>
-          <span className="text-blue-500 block">Never Reproduce</span>
-        </h2>
-      </div>
+    <div className="pt-8 pb-12 mx-4 flex-col justify-center sm:px-6 md:flex md:flex-col md:pb-16 ">
+      <blockquote
+        className="mt-6 md:flex-grow md:flex md:flex-col self-center inline-block"
+        style={{ width: "600px" }}
+      >
+        <div className="relative text-lg font-medium text-gray-500 md:flex-grow ">
+          <svg
+            className="absolute top-0 left-0 transform -translate-x-6 -translate-y-2 h-6 w-6 text-blue-500"
+            fill="currentColor"
+            viewBox="0 0 32 32"
+            aria-hidden="true"
+          >
+            <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+          </svg>
+          <p
+            className="relative"
+            dangerouslySetInnerHTML={{ __html: body }}
+          ></p>
+        </div>
+        <footer className="mt-8">
+          <div className="flex items-start">
+            <div className="flex-shrink-0 inline-flex rounded-full border-2 border-blue">
+              <img className="h-12 w-12 rounded-full" src={avatar} alt="" />
+            </div>
+            <div className="ml-4">
+              <div className="text-base font-bold text-gray-500 ">{name}</div>
+              <div className="text-base font-medium text-gray-500">{title}</div>
+            </div>
+          </div>
+        </footer>
+      </blockquote>
     </div>
   );
 }
-
 function Feature({ title, content, type, picture }) {
   const headerColor = type == "dark" ? "text-white" : "text-gray-900";
   const bodyColor = type == "dark" ? "text-white" : "text-gray-900";
@@ -105,6 +152,7 @@ export default function Features() {
             picture={"/recording.png"}
           />
         </FeatureGroup>
+        <Testimonial testimonial={testimonials[0]} />
       </div>
       <div className="py-6 sm:py-4">
         <FeatureGroup title="Collaborate in context">
@@ -114,6 +162,7 @@ export default function Features() {
             picture={"/viewing.png"}
           />
         </FeatureGroup>
+        <Testimonial testimonial={testimonials[1]} />
       </div>
       <div className="pt-6 pb-24 sm:py-4">
         <FeatureGroup title="Debug with DevTools">
@@ -123,6 +172,7 @@ export default function Features() {
             picture={"/devtools.png"}
           />
         </FeatureGroup>
+        <Testimonial testimonial={testimonials[2]} />
       </div>
     </main>
   );
