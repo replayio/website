@@ -95,7 +95,7 @@ export default function Header() {
 
           <Flyout />
           <Link href="https://www.notion.so/replayio/Replay-is-Hiring-2459455b1ab1446da7f1458721ba128f">
-            We're Hiring!
+            We're Hiring
           </Link>
         </div>
         <div className="flex items-center md:hidden absolute right-0">
