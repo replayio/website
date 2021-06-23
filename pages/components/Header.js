@@ -63,10 +63,6 @@ function HeaderMenu({ showDropdown, toggleDropdown }) {
           aria-labelledby="main-menu"
         >
           <div className="px-2 pt-2 pb-3 space-y-1" role="none">
-            {/* <MenuItem href="https://www.notion.so/Docs-56758667f53a4d51b7c6fc7a641adb02">Workflow</MenuItem> */}
-            <MenuItem href="https://www.notion.so/replayio/Technology-cc65abf5eb11443586abb4aa04345985">
-              Technology
-            </MenuItem>
             <MenuItem href="https://www.notion.so/replayio/Use-Cases-e64fea3c289e40998a0646c8530d3fe4">
               {" "}
               Uses Cases
@@ -88,18 +84,19 @@ export default function Header() {
         <div className="flex justify-start lg:w-0 lg:flex-1">
           <a href="/">
             {" "}
-            <img src="https://replay.io/_next/image?url=%2Flogo.svg&w=64&q=75" />
+            <img src="https://replay.io/_next/image?url=%2Flogo.svg&w=48&q=48" />
           </a>
+          <h1 className="inline-flex font-medium	ml-4 text-gray-500">Replay</h1>
         </div>
         <div className="hidden md:flex md:space-x-10 ">
           <Link href="https://www.notion.so/Docs-56758667f53a4d51b7c6fc7a641adb02">
             Docs
           </Link>
-          <Link href="https://www.notion.so/replayio/Technology-cc65abf5eb11443586abb4aa04345985">
-            Technology
-          </Link>
+
           <Flyout />
-          <Link href="/about-us">About Us</Link>
+          <Link href="https://www.notion.so/replayio/Replay-is-Hiring-2459455b1ab1446da7f1458721ba128f">
+            We're Hiring!
+          </Link>
         </div>
         <div className="flex items-center md:hidden absolute right-0">
           <button
@@ -129,7 +126,13 @@ export default function Header() {
         </div>
         <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
           <a
-            className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-gray-600  hover:bg-gray-100 borer-1 border-r-2 border-gray-200"
+            className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border-transparent text-base font-medium text-gray-500  hover:underline"
+            href="https://replay.io/discord"
+          >
+            Discord
+          </a>
+          <a
+            className="ml-2 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-gray-500  hover:bg-gray-100 borer-1  border-gray-200"
             href="https://replay.io/view"
           >
             Login

@@ -23,6 +23,14 @@ const testimonials = [
   }
 ];
 
+function Link({ href, children }) {
+  return (
+    <a href={href} className="underline text-blue-700 hover:text-gray-900">
+      {children}
+    </a>
+  );
+}
+
 function Testimonial({ testimonial }) {
   const { body, title, avatar, name } = testimonial;
   return (
@@ -60,7 +68,7 @@ function Testimonial({ testimonial }) {
     </div>
   );
 }
-function Feature({ title, content, type, picture }) {
+function Feature({ title, content, link, type, picture }) {
   const headerColor = type == "dark" ? "text-white" : "text-gray-900";
   const bodyColor = type == "dark" ? "text-white" : "text-gray-900";
   return (
@@ -68,7 +76,7 @@ function Feature({ title, content, type, picture }) {
       <dt className={`text-xl leading-6 ${headerColor}`}>{title}</dt>
 
       <dd className="my-6 px-2 sm:px-4 md:px-16 lg:px-16 text-xl w-xl font-light ${bodyColor}">
-        {content}
+        {content} {link}
       </dd>
 
       <div class="flex-shrink-0 inline-flex rounded-full mt-8">
@@ -148,8 +156,13 @@ export default function Features() {
         <FeatureGroup title="Capture the whole session">
           <Feature
             title={``}
-            content={`Replay records the browser. This means when you view a replay, you won't need to reproduce a thing. We’ve got it all captured, so you can see what really happened.`}
+            content={`Replay records the low-level events needed to replay the browser as it ran before. You'll never need to repro again!`}
             picture={"/recording.png"}
+            link={
+              <Link href="https://www.notion.so/replayio/Technology-cc65abf5eb11443586abb4aa04345985">
+                Learn more
+              </Link>
+            }
           />
         </FeatureGroup>
         <Testimonial testimonial={testimonials[0]} />
