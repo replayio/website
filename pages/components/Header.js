@@ -133,7 +133,7 @@ export default function Header() {
           </a>
           <a
             className="ml-2 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-gray-500  hover:bg-gray-100 borer-1  border-gray-200"
-            href="https://replay.io/view"
+            href="https://app.replay.io"
           >
             Login
           </a>
