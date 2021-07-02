@@ -22,13 +22,13 @@ function Hero() {
               <span className="block text-blue-500">Debugger</span>
             </h1>
             <p className="mt-4 text-center text-2xl  tracking-tight sm:text-3xl lg:text-4xl text-gray-900 font-bold">
-              Adding Print Statements Retroactively
+              Retroactive Print Statements
             </p>
             <p className="mt-2 max-w-lg mx-auto text-center text-xl text-gray-900 sm:max-w-3xl my-8 font-light">
-              Developers debug with print statements, but typically that means
-              edit the code, refresh, re-run, and hope you reproduce. With
-              Replay, you can add a console.log and immediately see the messages
-              in the console.
+              Debugging with print statements typically includes editing,
+              re-running, and hoping you reproduce the bug. With Replay, you
+              click and immediately see the messages in the console as if you
+              had the log there all along.
             </p>
             <video
               className="rounded-lg "
@@ -58,25 +58,24 @@ export default function Home() {
         <div className="py-8 ">
           <Feature
             header="1"
-            title="Jumping to a breakpoint hit"
+            title="Jump to the point"
             poster="/video/breakpoints.png"
             videoSrc="/video/breakpoints.mp4"
           >
             The problem with breakpoints is that you pause and can only go
-            forward. With Replay, you can add a breakpoint, see all of the hits,
-            and jump to any point.
+            forward. When you add a breakpoint in Replay, you can jump to any
+            point.
           </Feature>
         </div>
         <div className="py-8 ">
           <Feature
             header="2"
-            title="Adding comments"
+            title="Add a comment"
             poster="/video/comments.png"
             videoSrc="/video/comments.mp4"
           >
-            When you leave a comment in Replay, the comment includes the point
-            in time and location in the code. This makes it easy to see the
-            context the comment was left in.
+            Comments are pinned to the code so it's easy to discuss the
+            application context at that specific point in time.
           </Feature>
         </div>
         <div className="py-8 ">
@@ -86,9 +85,8 @@ export default function Home() {
             poster="/video/evaluations.png"
             videoSrc="/video/evaluations.mp4"
           >
-            When you pause in Replay it is like you're paused in the program the
-            first time it ran. You can hover on a variable in the editor and
-            evaluate expressions in the console.{" "}
+            Hover on a variable in the editor and evaluate expressions in the
+            console.
           </Feature>
         </div>
         <Footer />
