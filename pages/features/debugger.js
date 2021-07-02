@@ -62,9 +62,9 @@ export default function Home() {
             poster="/video/breakpoints.png"
             videoSrc="/video/breakpoints.mp4"
           >
-            The problem with breakpoints is that you pause and can only go
-            forward. When you add a breakpoint in Replay, you can jump to any
-            point.
+            The problem with breakpoints is that when you pause you can only go
+            forward. When you add a breakpoint in Replay, you can jump forward
+            and backward.
           </Feature>
         </div>
         <div className="py-8 ">
@@ -81,12 +81,13 @@ export default function Home() {
         <div className="py-8 ">
           <Feature
             header="3"
-            title="Evaluating in the Console"
+            title="Evaluate in the Console"
             poster="/video/evaluations.png"
             videoSrc="/video/evaluations.mp4"
           >
             Hover on a variable in the editor and evaluate expressions in the
-            console.
+            console. What's magical about Replay is that you can rewind to the
+            root cause and debug it directly.
           </Feature>
         </div>
         <Footer />
