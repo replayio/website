@@ -57,7 +57,7 @@ export default function ImportSettings() {
 
         <a
           type="button"
-          href="https://replay.io/view"
+          href="https://app.replay.io"
           className="inline-block appearance-none w-36 mt-8 mx-4 px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           onClick={launchMigrationWizard}
         >
@@ -65,7 +65,7 @@ export default function ImportSettings() {
         </a>
         <a
           type="button"
-          href="https://replay.io/view"
+          href="https://app.replay.io"
           className="inline-block appearance-none w-36 mt-8 mx-4 px-5 py-3 border border-indigo-600 text-base font-medium rounded-md text-indigo-600 bg-white hover:text-indigo-700 hover:border-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
         >
           Skip

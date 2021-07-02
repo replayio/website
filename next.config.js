@@ -2,11 +2,9 @@ const host =
   process.env.REPLAY_DEVTOOLS_HOST || "https://dc3tvimjwmdjm.cloudfront.net";
 const directories = ["dist", "images", "downloads", "driver", "protocol"];
 
-let maintenance = false
+let maintenance = false;
 
 const devToolsAppPath = "view";
-const files = [devToolsAppPath];
-const devToolsPaths = [maintenance ? "staging" : "browser"];
 
 const rewrites = [];
 const headers = [];
@@ -40,40 +38,23 @@ for (const directory of directories) {
   });
 }
 
-for (const file of files) {
-  headers.push({
-    source: `/${file}`,
-    headers: [{ key: "cache-control", value: "s-maxage=0" }]
-  });
-
-  rewrites.push({
-    source: `/${file}`,
-    destination: `${host}/${file}`
-  });
-}
-
-// Ensure all sub-paths are served by the app root
-for (const devToolsPath of devToolsPaths) {
-  // These first two are workarounds until devtools is updated for better pathing
-  rewrites.push({
-    source: `/${devToolsPath}/dist/:rest*`,
-    destination: `${host}/dist/:rest*`
-  });
-
-  rewrites.push({
-    source: `/${devToolsPath}/images/:rest*`,
-    destination: `${host}/images/:rest*`
-  });
-
-  rewrites.push({
-    source: `/${devToolsPath}/:rest*`,
-    destination: `${host}/${devToolsAppPath}`
-  });
-}
-
 module.exports = {
   rewrites() {
     return rewrites;
+  },
+  redirects() {
+    return [
+      {
+        source: "/view/:slug*",
+        destination: "https://app.replay.io/:slug*",
+        permanent: true
+      },
+      {
+        source: `/browser/:rest*`,
+        destination: `https://app.replay.io/browser/:rest*`,
+        permanent: true
+      }
+    ];
   },
   headers() {
     return headers;
