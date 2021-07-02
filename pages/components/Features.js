@@ -183,6 +183,7 @@ export default function Features() {
             title={``}
             content={`With Replay, you can view console logs, inspect elements, and even add print statements after the fact. It's all there so you can find the bugs faster.`}
             picture={"/devtools.png"}
+            link={<Link href="/features/debugger">Learn more</Link>}
           />
         </FeatureGroup>
         <Testimonial testimonial={testimonials[2]} />
