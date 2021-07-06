@@ -26,9 +26,14 @@ rewrites.push({
   destination: "https://discord.gg/PFjtU3uv7M"
 });
 
+const careersPage = "https://www.notion.so/replayio/Replay-is-Hiring-2459455b1ab1446da7f1458721ba128f";
 rewrites.push({
   source: "/jobs",
-  destination: "https://www.notion.so/replayio/Replay-is-Hiring-2459455b1ab1446da7f1458721ba128f"
+  destination: careersPage,
+})
+rewrites.push({
+  source: "/careers",
+  destination: careersPage,
 })
 
 for (const directory of directories) {
