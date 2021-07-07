@@ -26,17 +26,6 @@ rewrites.push({
   destination: "https://discord.gg/PFjtU3uv7M"
 });
 
-const careersPage = "https://www.notion.so/replayio/Replay-is-Hiring-2459455b1ab1446da7f1458721ba128f";
-rewrites.push({
-  source: "/jobs",
-  destination: careersPage,
-  permanent: true,
-})
-rewrites.push({
-  source: "/careers",
-  destination: careersPage,
-  permanent: true,
-})
 
 for (const directory of directories) {
   headers.push({
@@ -49,6 +38,8 @@ for (const directory of directories) {
     destination: `${host}/${directory}/:rest*`
   });
 }
+
+const careersPage = "https://www.notion.so/replayio/Replay-is-Hiring-2459455b1ab1446da7f1458721ba128f";
 
 module.exports = {
   rewrites() {
@@ -65,6 +56,16 @@ module.exports = {
         source: `/browser/:rest*`,
         destination: `https://app.replay.io/browser/:rest*`,
         permanent: true
+      },
+      {
+        source: "/jobs",
+        destination: careersPage,
+        permanent: true,
+      },
+      {
+        source: "/careers",
+        destination: careersPage,
+        permanent: true,
       }
     ];
   },
