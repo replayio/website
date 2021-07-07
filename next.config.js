@@ -30,10 +30,12 @@ const careersPage = "https://www.notion.so/replayio/Replay-is-Hiring-2459455b1ab
 rewrites.push({
   source: "/jobs",
   destination: careersPage,
+  permanent: true,
 })
 rewrites.push({
   source: "/careers",
   destination: careersPage,
+  permanent: true,
 })
 
 for (const directory of directories) {
