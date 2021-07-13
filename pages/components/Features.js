@@ -79,8 +79,12 @@ function Feature({ title, content, link, type, picture }) {
         {content} {link}
       </dd>
 
-      <div class="flex-shrink-0 inline-flex rounded-full mt-8">
-        <img class="h-full w-full shadow-lg rounded-md" src={picture} alt="" />
+      <div className="flex-shrink-0 inline-flex rounded-full mt-8">
+        <img
+          className="h-full w-full shadow-lg rounded-md"
+          src={picture}
+          alt=""
+        />
       </div>
     </div>
   );
