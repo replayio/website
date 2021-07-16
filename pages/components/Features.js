@@ -37,7 +37,7 @@ function Testimonial({ testimonial }) {
     <div className="pt-8 pb-12 mx-4 flex-col justify-center sm:px-6 md:flex md:flex-col md:pb-16 ">
       <blockquote
         className="mt-6 md:flex-grow md:flex md:flex-col self-center inline-block"
-        style={{ width: "600px" }}
+        style={{ maxWidth: "600px" }}
       >
         <div className="relative text-lg font-medium text-gray-500 md:flex-grow ">
           <svg
