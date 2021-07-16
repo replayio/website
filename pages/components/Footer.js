@@ -2,9 +2,9 @@ const navigation = {
   company: [
     {
       name: "About Us",
-      href: "https://replay.io/about-us"
+      href: "/about-us"
     },
-    { name: "Privacy Policy", href: "https://replay.io/privacy.html" }
+    { name: "Privacy Policy", href: "/privacy.html" }
   ],
   product: [
     {
@@ -24,7 +24,7 @@ const navigation = {
   ],
   contact: [
     { name: "hey@replay.io", href: "mailto:hey@replay.io" },
-    { name: "Discord", href: "https://replay.io/discord" },
+    { name: "Discord", href: "/discord" },
     { name: "Twitter", href: "https://twitter.com/replayio" },
     { name: "Github", href: "https://github.com/RecordReplay" }
   ],
