@@ -18,7 +18,7 @@ function Demo() {
           width: "100%",
           height: "600px"
         }}
-        src="https://app.replay.io/?id=0b4ea691-feea-46b7-972b-a7ea66ecc3ce&demo=1"
+        src="https://app.replay.io/?id=ebdd3a5f-995d-4102-ae4d-c8b501f951b5&point=21418224541528426781754015248023619&demo=1"
       />
     </>
   );
