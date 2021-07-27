@@ -11,7 +11,7 @@ const people = [
   {
     name: "Brian Hackett",
     role: "CTO",
-    imageUrl: "/brian.jpeg",
+    imageUrl: "/brian.jpg",
     bio:
       "Brian has had a longtime passion for helping people understand hugely complex software systems, starting with a Stanford Ph.D. and continuing through 10 years at Mozilla, where he worked on JavaScript VM optimizations and developed a precursor to Replay.  He is a nomadic adventurer and enjoys sailing around Polynesia and van travel in the western US with his wife.",
     twitterUrl: null,
