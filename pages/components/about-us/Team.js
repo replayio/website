@@ -38,7 +38,7 @@ const people = [
     role: "Software Engineer",
     imageUrl: "/logan.png",
     bio:
-      "Jon has been excited about designing things on the internet since the 80s, and has led design teams at Twitter and Windows Phone. He lives in windy Wellington, New Zealand with his large family and loves writing, teaching classes, playing soccer, and trying to remember how to play the clarinet.",
+      "Logan loves diving into complex systems, and before Replay he helped maintain BabelJS, and worked on Firefox's developer tools at Mozilla. Outside work he loves playing games, reading, and finding interesting new things to learn about.",
     twitterUrl: "https://twitter.com/loganfsmyth",
     linkedinUrl: "https://www.linkedin.com/in/logan-smyth-82a98012/"
   },
