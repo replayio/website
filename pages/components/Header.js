@@ -68,6 +68,9 @@ function HeaderMenu({ showDropdown, toggleDropdown }) {
               Uses Cases
             </MenuItem>
             <MenuItem href="/about-us"> About Us</MenuItem>
+            <MenuItem href="https://www.notion.so/replayio/Replay-is-Hiring-2459455b1ab1446da7f1458721ba128f">
+              We're Hiring
+            </MenuItem>
           </div>
         </div>
       </div>
