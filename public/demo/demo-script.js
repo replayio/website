@@ -1,4 +1,4 @@
-const COLORS = ["red", "blue", "yellow", "pink", "green", "purple"];
+const IMAGES = ["delorean", "clocktower", "doc", "hoverboard"];
 let showEasterEgg = false;
 
 const log = (callback) => setTimeout(callback, 100);
@@ -9,7 +9,6 @@ function initialize() {
   [...buttons].forEach((button, index) => {
     button.addEventListener("click", () => onClick(button, index + 1));
   });
-
   console.log("The page has loaded");
   printWelcomeMessage();
 }
@@ -38,18 +37,21 @@ function onClick(button, number) {
 }
 
 function lightUpFireworks() {
-  const bigDiv = document.querySelector("body > div");
+  const headerDiv = document.querySelector("h1");
+  headerDiv.classList.add("text-black");
+  headerDiv.classList.remove("text-white");
+  headerDiv.innerText = "Great Scott!";
 
-  bigDiv.classList.remove("bg-white");
-  bigDiv.classList.add("bg-pink-100");
+  const helperDiv = document.querySelector(".quote");
+  helperDiv.classList.add("text-black");
+  helperDiv.classList.remove("italic");
+  helperDiv.classList.remove("text-white");
+  helperDiv.innerText =
+    "Well done! Now hit the stop button up top so we can pop the hood on your recording and check it out.";
 
-  const contentContainer = document.querySelector("main > div");
-  const newContent = document.createElement("div");
-  const text = document.createElement("strong");
-  text.innerText = "You made all the circles the same color!";
-
-  newContent.appendChild(text);
-  contentContainer.appendChild(newContent);
+  const bodyDiv = document.querySelector(".main");
+  bodyDiv.classList.add("bg-white");
+  bodyDiv.classList.remove("bg-black");
 
   log(() => {
     console.log("🐣🐣🐣 You've hatched our easter egg! 🐣🐣🐣");
@@ -58,14 +60,15 @@ function lightUpFireworks() {
 
 function randomizeCircleColor(button, number) {
   const originalClass = button.classList[button.classList.length - 1];
-  const color = COLORS[Math.floor(Math.random() * COLORS.length)];
-  const newClass = `bg-${color}-600`;
+  const image = IMAGES[Math.floor(Math.random() * IMAGES.length)];
+  console.log(image);
+  const newClass = image;
 
   button.classList.remove(originalClass);
   button.classList.add(newClass);
 
   log(() => {
-    console.log(`Turned circle ${number} to ${color}`);
+    console.log(`Turned circle ${number} to ${image}`);
   });
 }
 
