@@ -1,6 +1,6 @@
 const host =
   process.env.REPLAY_DEVTOOLS_HOST || "https://dc3tvimjwmdjm.cloudfront.net";
-const directories = ["dist", "images", "driver", "protocol"];
+const directories = ["dist", "images", "downloads", "driver", "protocol"];
 
 let maintenance = false;
 
@@ -53,11 +53,6 @@ module.exports = {
   },
   redirects() {
     return [
-      {
-        source: "/downloads/:rest*",
-        destination: `${host}/downloads/:rest*`,
-        permanent: false,
-      },
       {
         source: "/view/:slug*",
         destination: "https://app.replay.io/:slug*",
