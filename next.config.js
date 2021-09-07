@@ -2,7 +2,7 @@ const host =
   process.env.REPLAY_DEVTOOLS_HOST || "https://dc3tvimjwmdjm.cloudfront.net";
 const directories = ["dist", "images", "driver", "protocol"];
 
-let maintenance = false;
+let maintenance = true;
 
 const rewrites = [];
 const headers = [];
