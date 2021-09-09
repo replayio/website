@@ -57,6 +57,14 @@ const people = [
       "Jon has been excited about designing things on the internet since the 80s, and has led design teams at Twitter and Windows Phone. He lives in windy Wellington, New Zealand with his large family and loves writing, teaching classes, playing soccer, and trying to remember how to play the clarinet.",
     twitterUrl: "https://twitter.com/JonBell",
     linkedinUrl: "https://www.linkedin.com/in/jon-bell-733310138/"
+  },
+  {
+    name: "Sophie Haskins",
+    role: "Infrastructure Contractor",
+    imageUrl: "/sophie.jpeg",
+    bio:
+      "Sophie helps build the backend infrastructure of Replay. Through her career on infra teams at Etsy, Yelp, and GitHub, she's found the most joy in building systems that focus on the people they support, rather than pure technology. If she gets to share evocative colorful graphs along the way, all the better.",
+    twitterUrl: "https://twitter.com/sophaskins"
   }
 ];
 
