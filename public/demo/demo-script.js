@@ -3,6 +3,11 @@ let showEasterEgg = false;
 
 const log = (callback) => setTimeout(callback, 100);
 
+function preloadImage(url) {
+  var img = new Image();
+  img.src = url;
+}
+
 function initialize() {
   const buttons = document.querySelectorAll("button");
 
@@ -10,7 +15,7 @@ function initialize() {
     button.addEventListener("click", () => onClick(button, index + 1));
   });
   console.log("The page has loaded");
-  printWelcomeMessage();
+  preloadImage("/demo/demo_hoverboard.png");
 }
 
 function forceRender() {
@@ -28,7 +33,7 @@ function printWelcomeMessage() {
 
 function onClick(button, number) {
   console.log(`Currently calling the button ${number}'s click event handler`);
-  randomizeCircleColor(button, number);
+  randomizeIllustration(button, number);
 
   if (!showEasterEgg && circlesAreAllTheSameColor()) {
     showEasterEgg = true;
@@ -54,13 +59,22 @@ function lightUpFireworks() {
   bodyDiv.classList.remove("bg-black");
 
   log(() => {
-    console.log("🐣🐣🐣 You've hatched our easter egg! 🐣🐣🐣");
+    console.log("Great Scott! You did it! 🔥");
+    printWelcomeMessage();
   });
 }
 
-function randomizeCircleColor(button, number) {
+function randomizeIllustration(button, number) {
   const originalClass = button.classList[button.classList.length - 1];
-  const image = IMAGES[Math.floor(Math.random() * IMAGES.length)];
+  let image = IMAGES[Math.floor(Math.random() * IMAGES.length)];
+
+  // make sure an illustration doesn't happen twice
+  if (image == originalClass && image != "doc") {
+    image = "doc";
+  } else if (image == originalClass && image == "doc") {
+    image = "clocktower";
+  }
+
   console.log(image);
   const newClass = image;
 
