@@ -26,9 +26,13 @@ function forceRender() {
 }
 
 function printWelcomeMessage() {
-  console.log(
-    "Welcome to Replay! 👋 Here are some things you can try:\n\n1. Try clicking in the console message to time travel to that point in time!\n2. Try mousing over line numbers to see how often each line of code was run.\n3. Try adding a breakpoint and navigating around. Line 31 in demo-script.js is a good one to try!\n4. Come chat with us on Discord! http://replay.io/discord/"
-  );
+  console.log('');
+  console.log('Welcome to Replay!👋 Here are some things to try:');
+  console.log('1. Clicking on a console message');
+  console.log('2. Mousing over a line number');
+  console.log('3. Adding a breakpoint!');
+  console.log('');
+  console.log('Say "hi" in Discord! replay.io/discord');
 }
 
 function onClick(button, number) {
