@@ -26,12 +26,12 @@ function forceRender() {
 }
 
 function printWelcomeMessage() {
-  console.log('');
-  console.log('Welcome to Replay!👋 Here are some things to try:');
-  console.log('1. Clicking on a console message');
-  console.log('2. Mousing over a line number');
-  console.log('3. Adding a breakpoint!');
-  console.log('');
+  console.log("");
+  console.log("Welcome to Replay!👋 Here are some things to try:");
+  console.log("1. Clicking on a console message");
+  console.log("2. Mousing over a line number");
+  console.log("3. Adding a breakpoint!");
+  console.log("");
   console.log('Say "hi" in Discord! replay.io/discord');
 }
 
@@ -58,12 +58,12 @@ function lightUpFireworks() {
   helperDiv.innerText =
     "Well done! Now hit the stop button up top so we can pop the hood on your recording and check it out.";
 
-  const bodyDiv = document.querySelector(".main");
+  const bodyDiv = document.querySelector("BODY");
   bodyDiv.classList.add("bg-white");
   bodyDiv.classList.remove("bg-black");
 
   log(() => {
-    console.log("Great Scott! You did it! 🔥");
+    console.log("Great Scott! You did it! 🔥🔥");
     printWelcomeMessage();
   });
 }
