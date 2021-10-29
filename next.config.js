@@ -39,6 +39,9 @@ for (const directory of directories) {
 }
 
 module.exports = {
+  images: {
+    loader: "imgix"
+  },
   rewrites() {
     return rewrites;
   },
