@@ -1,0 +1,27 @@
+name: Deploy
+
+on: workflow_dispatch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-2
+      - name: Install deps
+        run: npm ci
+      - name: Run export
+        run: npm run export
+      - name: Upload demo dir
+        run: aws s3 cp --recursive demo s3://recordreplay-website/demo
+      - name: Upload tos
+        run: aws s3 cp tos.html s3://recordreplay-website/tos.html
+      - name: Upload privacy policy
+        run: aws s3 cp privacy.html s3://recordreplay-website/privacy.html
+      - name: Invalidate CloudFront
+        run: aws cloudfront create-invalidation --distribution-id E3U30CHVUQVFAF --paths /demo/* /tos.html /privacy.html
