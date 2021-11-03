@@ -18,10 +18,10 @@ jobs:
       - name: Run export
         run: npm run export
       - name: Upload demo dir
-        run: aws s3 cp --recursive demo s3://recordreplay-website/demo
+        run: aws s3 cp --recursive public/demo s3://recordreplay-website/demo
       - name: Upload tos
-        run: aws s3 cp tos.html s3://recordreplay-website/tos.html
+        run: aws s3 cp public/tos.html s3://recordreplay-website/tos.html
       - name: Upload privacy policy
-        run: aws s3 cp privacy.html s3://recordreplay-website/privacy.html
+        run: aws s3 cp public/privacy.html s3://recordreplay-website/privacy.html
       - name: Invalidate CloudFront
         run: aws cloudfront create-invalidation --distribution-id E3U30CHVUQVFAF --paths /demo/* /tos.html /privacy.html
