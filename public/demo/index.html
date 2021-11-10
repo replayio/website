@@ -83,8 +83,24 @@
           </div>
         </main>
       </div>
+      <div
+        id="recMessage"
+        class="transition-opacity opacity-0 absolute top-4 right-24 p-4 rounded-lg bg-gray-900 z-10"
+      >
+        Click REC to start recording! ⤴︎
+      </div>
     </div>
-
+    <script>
+      setTimeout(() => {
+        document
+          .querySelector("#recMessage")
+          .classList.toggle(
+            "opacity-100",
+            !window.navigator.userAgent.includes("Macintosh") &&
+              "__IS_RECORD_REPLAY_RUNTIME__" in window
+          );
+      }, 400);
+    </script>
     <script type="module" src="/demo/demo-script.js"></script>
   </body>
 </html>
