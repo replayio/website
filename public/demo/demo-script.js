@@ -14,7 +14,6 @@ function initialize() {
   [...buttons].forEach((button, index) => {
     button.addEventListener("click", () => onClick(button, index + 1));
   });
-  console.log("The page has loaded");
   preloadImage("/demo/demo_hoverboard.png");
 }
 
@@ -30,13 +29,12 @@ function printWelcomeMessage() {
   console.log("Welcome to Replay!👋 Here are some things to try:");
   console.log("1. Clicking on a console message");
   console.log("2. Mousing over a line number");
-  console.log("3. Adding a breakpoint!");
+  console.log("3. Adding a print statement!");
   console.log("");
   console.log('Say "hi" in Discord! replay.io/discord');
 }
 
 function onClick(button, number) {
-  console.log(`Currently calling the button ${number}'s click event handler`);
   randomizeIllustration(button, number);
 
   if (!showEasterEgg && circlesAreAllTheSameColor()) {
@@ -63,7 +61,6 @@ function lightUpFireworks() {
   bodyDiv.classList.remove("bg-black");
 
   log(() => {
-    console.log("Great Scott! You did it! 🔥🔥");
     printWelcomeMessage();
   });
 }
@@ -79,15 +76,10 @@ function randomizeIllustration(button, number) {
     image = "clocktower";
   }
 
-  console.log(image);
   const newClass = image;
 
   button.classList.remove(originalClass);
   button.classList.add(newClass);
-
-  log(() => {
-    console.log(`Turned circle ${number} to ${image}`);
-  });
 }
 
 function circlesAreAllTheSameColor() {
