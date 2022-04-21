@@ -25,7 +25,6 @@ function forceRender() {
 }
 
 function printWelcomeMessage() {
-  console.log("");
   console.log("Welcome to Replay!👋 Here are some things to try:");
   console.log("1. Clicking on a console message");
   console.log("2. Mousing over a line number");
