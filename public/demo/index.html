@@ -7,12 +7,14 @@
       href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     <title>Your first replay</title>
   </head>
   <body class="bg-black text-white">
     <style>
       BODY {
-        color: #fff;
+        font-family: Inter;
       }
 
       button {
@@ -36,23 +38,6 @@
     </style>
 
     <div class="w-full h-full grid fixed z-50 items-center justify-center">
-      <div class="w-full h-full absolute">
-        <div class="absolute">
-          <img
-            src="https://app.replay.io/images/bubble.svg"
-            class="transform rotate-90 -translate-x-1/2 -translate-y-1/2"
-            style="width: 135vw"
-          />
-        </div>
-        <div class="absolute bottom-0 right-0">
-          <img
-            src="https://app.replay.io/images/bubble.svg"
-            class="transform -rotate-90 translate-x-1/2 translate-y-1/2"
-            style="width: 45vw"
-          />
-        </div>
-      </div>
-
       <div class="min-h-screen pt-16 pb-12 flex flex-col main z-40">
         <main
           class="flex-grow flex flex-col justify-center max-w-2xl w-full mx-auto px-4 sm:px-6 lg:px-8"
@@ -60,7 +45,7 @@
           <div class="py-16 space-y-12 text-center">
             <div class="space-y-2">
               <h1
-                class="mt-2 text-4xl font-extrabold text-white tracking-tight sm:text-5xl"
+                class="mt-2 text-4xl font-medium text-white tracking-tight sm:text-5xl"
               >
                 Can you get 3 of a kind?
               </h1>
