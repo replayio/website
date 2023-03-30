@@ -2,39 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  height: 100%;
+.delorean {
+  background-image: url("/demo/demo_car.png");
 }
 
-body,
-#__next {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+.clocktower {
+  background-image: url("/demo/demo_clocktower.png");
 }
 
-.accent-primary {
-  background: linear-gradient(180deg, #1b7fe3 0%, #5aadff 100%);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+.doc {
+  background-image: url("/demo/demo_doc.png");
 }
 
-.accent-secondary {
-  background: linear-gradient(180deg, #8330f4 0%, #a664ff 100%);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.my-shadow {
-  box-shadow: 10px 5px 5px red;
-}
-
-.testimonial:hover figure {
-  transform: rotate(0deg) translateZ(0px) !important;
-}
-
-@media (min-width: 768px) {
-  .md\:w-xl {
-    width: 36rem;
-  }
+.hoverboard {
+  background-image: url("/demo/demo_hoverboard.png");
 }
