@@ -39,6 +39,7 @@ for (const directory of directories) {
 }
 
 module.exports = {
+  productionBrowserSourceMaps: true,
   rewrites() {
     return rewrites;
   },
