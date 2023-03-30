@@ -22,6 +22,13 @@ const Game = () => {
     }
   }, [cards]);
 
+  useEffect(() => {
+    // preload images
+    possibleCards.forEach((c) => {
+      new Image().src = `/demo/demo_${c}.png`;
+    });
+  }, []);
+
   return (
     <div
       className={clsx(
