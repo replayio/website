@@ -9,6 +9,7 @@ function preloadImage(url) {
 }
 
 function initialize() {
+  console.log("Loading demo...");
   const buttons = document.querySelectorAll("button");
 
   [...buttons].forEach((button, index) => {
