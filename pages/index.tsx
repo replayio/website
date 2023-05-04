@@ -14,6 +14,10 @@ const Game = () => {
   };
 
   useEffect(() => {
+    printWelcomeMessage();
+  }, []);
+
+  useEffect(() => {
     if (gameState === "ended") {
       return;
     }
@@ -28,6 +32,15 @@ const Game = () => {
       new Image().src = `/demo/demo_${c}.png`;
     });
   }, []);
+
+  function printWelcomeMessage() {
+    console.log("Welcome to Replay!👋 Here are some things to try:");
+    console.log("1. Clicking on a console message");
+    console.log("2. Mousing over a line number");
+    console.log("3. Adding a print statement!");
+    console.log("");
+    console.log("Say hi in Discord! replay.io/discord");
+  }
 
   return (
     <div
