@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import clsx from "clsx";
+import Head from "next/head";
 
 const Game = () => {
   const [gameState, setGameState] = useState<"initial" | "ended">("initial");
@@ -53,6 +54,9 @@ const Game = () => {
         gameState === "ended" ? "bg-white text-black" : "text-white bg-black"
       )}
     >
+      <Head>
+        <title>⭐️ Your first replay</title>
+      </Head>
       <div className="z-40 flex flex-col min-h-screen pt-16 pb-12 main">
         <main className="flex flex-col justify-center flex-grow w-full max-w-2xl px-4 mx-auto sm:px-6 lg:px-8">
           <div className="py-16 space-y-12 text-center">
