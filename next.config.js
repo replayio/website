@@ -46,6 +46,11 @@ module.exports = {
   redirects() {
     return [
       {
+        source: "/demo",
+        destination: "/",
+        permanent: true
+      },
+      {
         source: "/view/:slug*",
         destination: "https://app.replay.io/:slug*",
         permanent: true
