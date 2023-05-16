@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import clsx from "clsx";
 import Head from "next/head";
 
@@ -80,9 +80,9 @@ const Game = () => {
                 ></button>
               ))}
             </div>
-            <div className="px-12 text-base italic quote">
+            <div className="px-20 text-base italic quote">
               {gameState === "ended"
-                ? "Well done! Now hit the stop button up top so we can pop the hood on your recording and check it out."
+                ? "Well done! Now stop the recording and we'll upload it."
                 : "If my calculations are correct, when this baby hits 88 miles per hour, you're gonna see some serious shit."}
             </div>
             <div className="text-xs italic">
@@ -96,9 +96,9 @@ const Game = () => {
       </div>
       <div
         id="recMessage"
-        className="absolute z-10 p-4 transition-opacity bg-gray-900 rounded-lg opacity-0 top-4 right-24"
+        className="absolute z-10 px-4 py-2 font-bold text-white transition-opacity bg-blue-500 rounded-lg opacity-100 top-4 right-24"
       >
-        Click REC to start recording! ⤴︎
+        Start and stop recordings here! <span className="text-xl">⤴︎</span>
       </div>
     </div>
   );
