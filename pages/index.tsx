@@ -94,12 +94,6 @@ const Game = () => {
           </div>
         </main>
       </div>
-      <div
-        id="recMessage"
-        className="absolute z-10 px-4 py-2 font-bold text-white transition-opacity bg-blue-500 rounded-lg opacity-100 top-4 right-24"
-      >
-        Start and stop recordings here! <span className="text-xl">⤴︎</span>
-      </div>
     </div>
   );
 };
