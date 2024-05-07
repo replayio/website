@@ -50,24 +50,40 @@ const Game = () => {
   return (
     <div
       className={clsx(
-        "fixed z-50 grid items-center justify-center w-full h-full",
-        gameState === "ended" ? "bg-white text-black" : "text-white bg-black"
+        "fixed z-50 grid items-start justify-start w-full h-full",
+        gameState === "ended"
+          ? "bg-blue-200 text-black"
+          : "text-white bg-gray-800"
       )}
     >
       <Head>
         <title>⭐️ Your first replay</title>
       </Head>
-      <div className="z-40 flex flex-col min-h-screen pt-16 pb-12 main">
-        <main className="flex flex-col justify-center flex-grow w-full max-w-2xl px-4 mx-auto sm:px-6 lg:px-8">
-          <div className="py-16 space-y-12 text-center">
-            <div className="space-y-2">
-              <h1 className="mt-2 text-4xl font-medium tracking-tight sm:text-5xl">
-                {gameState === "ended"
-                  ? "Great Scott!"
-                  : "Can you get 3 of a kind?"}
-              </h1>
-            </div>
-            <div className="z-40 grid grid-cols-3 gap-4 place-items-center">
+      <div className="z-40 flex flex-col min-h-screen pt-6 pb-12 m-6 prose main">
+        <main className="flex flex-col justify-start flex-grow w-full max-w-3xl px-4 mx-auto sm:px-6 lg:px-8">
+          <h1 className="mt-2 text-4xl font-medium tracking-tight sm:text-5xl">
+            Three steps to your first replay
+          </h1>
+          <section className="my-8 space-y-2">
+            <h2 className="text-lg font-medium">
+              1. Start recording this page
+            </h2>
+            <p>
+              <code className="p-2 text-white bg-gray-900 rounded">
+                npx replayio@latest record first.replay.io
+              </code>{" "}
+              is how to record from your terminal.
+            </p>
+          </section>
+          <section className="my-8">
+            <h2 className="text-lg font-medium">2. Click around!</h2>
+            <p>
+              By clicking, you're adding user events that we can inspect in the
+              replay. <br />
+              Try clicking these Back to the Future images to get three in a
+              row:
+            </p>
+            <div className="z-40 grid grid-cols-5 gap-1 mt-3">
               {cards.map((c, i) => (
                 <button
                   key={i}
@@ -76,22 +92,48 @@ const Game = () => {
                     newCards[i] = getRandomCard(possibleCards.indexOf(c));
                     setCards(newCards);
                   }}
-                  className={`w-32 h-32 bg-cover border-4 border-white rounded-full ${c}`}
+                  className={`w-24 h-24 bg-cover border-4 border-white rounded-full ${c}`}
                 ></button>
               ))}
             </div>
-            <div className="px-20 text-base italic quote">
-              {gameState === "ended"
-                ? "Well done! Now stop the recording and we'll upload it."
-                : "If my calculations are correct, when this baby hits 88 miles per hour, you're gonna see some serious shit."}
-            </div>
-            <div className="text-xs italic">
-              Awesome illustrations by{" "}
-              <a href="https://www.iconfinder.com/iconsets/back-to-the-future">
-                Veiga Studio
+          </section>
+          <section className="space-y-0">
+            <h2 className="text-lg font-medium">3. Stop recording</h2>
+
+            <p>All done! Stop recording and we'll show you the replay.</p>
+          </section>
+
+          <section className="my-8">
+            <h2 className="text-lg font-medium">Resources</h2>
+
+            <p>
+              If you need help, feel free to{" "}
+              <a
+                href="http://replay.io/discord"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                chat with us on Discord
               </a>
-            </div>
-          </div>
+              ,{" "}
+              <a
+                href="http://replay.io/contact"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                file a ticket
+              </a>
+              , or read our{" "}
+              <a
+                href="https://docs.replay.io"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                documentation
+              </a>
+              . Happy time traveling!
+            </p>
+          </section>
         </main>
       </div>
     </div>

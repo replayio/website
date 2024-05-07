@@ -3,3 +3,17 @@ node_modules
 .next
 out
 .env.local
+public/passport/mp4/add_a_comment.mp4
+public/passport/mp4/find_file.mp4
+public/passport/mp4/inspect_a_network_request.mp4
+public/passport/mp4/inspect_a_react_component.mp4
+public/passport/mp4/inspect_an_element.mp4
+public/passport/mp4/jump_to_code.mp4
+public/passport/mp4/jump_to_event.mp4
+public/passport/mp4/jump_to_network_request.mp4
+public/passport/mp4/launch_command_palette.mp4
+public/passport/mp4/search_source_text.mp4
+public/passport/mp4/set_print_statement.mp4
+public/passport/mp4/time_travel_in_the_console.mp4
+public/passport/mp4/unicorn_badge.mp4
+public/passport/mp4/use_focus_mode.mp4
