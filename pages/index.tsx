@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import clsx from "clsx";
 import Head from "next/head";
+import Analytics from "./analytics";
 
 const Game = () => {
   const [gameState, setGameState] = useState<"initial" | "ended">("initial");
@@ -59,6 +60,7 @@ const Game = () => {
       <Head>
         <title>⭐️ Your first replay</title>
       </Head>
+      <Analytics />
       <div className="z-40 flex flex-col min-h-screen pt-6 pb-12 m-6 prose main">
         <main className="flex flex-col justify-start flex-grow w-full max-w-3xl px-4 mx-auto sm:px-6 lg:px-8">
           <h1 className="mt-2 text-4xl font-medium tracking-tight sm:text-5xl">
@@ -75,7 +77,7 @@ const Game = () => {
               is how to record from your terminal.
             </p>
           </section>
-          <section className="my-8">
+          <section className="mb-8">
             <h2 className="text-lg font-medium">2. Click around!</h2>
             <p>
               By clicking, you're adding user events that we can inspect in the
