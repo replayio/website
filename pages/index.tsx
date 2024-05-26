@@ -1,7 +1,9 @@
 import { useEffect, useState, useRef } from "react";
 import clsx from "clsx";
 import Head from "next/head";
-import Analytics from "./analytics";
+import LogRocket from "logrocket";
+import mixpanel from "mixpanel-browser";
+import { Analytics } from "@vercel/analytics/react";
 
 const Game = () => {
   const [gameState, setGameState] = useState<"initial" | "ended">("initial");
@@ -14,6 +16,14 @@ const Game = () => {
     }
     return getRandomCard(cardIndexToAvoid);
   };
+
+  useEffect(() => {
+    LogRocket.init("4sdo4i/firstreplayio");
+    mixpanel.init("ffaeda9ef8fb976a520ca3a65bba5014", {
+      track_pageview: "url-with-path"
+    });
+    mixpanel.track("Loaded first.replay.io");
+  }, []);
 
   useEffect(() => {
     printWelcomeMessage();
