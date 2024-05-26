@@ -15,15 +15,15 @@ export default function Analytics() {
 
   return (
     <>
-      <script
+      {/* <script
         async
         src="https://analytics.umami.is/script.js"
         data-website-id="a88c4537-f122-4018-9956-8b9f6db92a7b"
-      ></script>
-      <script
+      ></script> */}
+      {/* <script
         async
         src="https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"
-      ></script>
+      ></script> */}
     </>
   );
 }
