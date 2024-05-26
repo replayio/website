@@ -70,7 +70,7 @@ const Game = () => {
       <Head>
         <title>⭐️ Your first replay</title>
       </Head>
-      <Analytics />
+      <Analytics debug={false} />
       <div className="z-40 flex flex-col min-h-screen pt-6 pb-12 m-6 prose main">
         <main className="flex flex-col justify-start flex-grow w-full max-w-3xl px-4 mx-auto sm:px-6 lg:px-8">
           <h1 className="mt-2 text-4xl font-medium tracking-tight sm:text-5xl">
