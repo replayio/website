@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import clsx from "clsx";
 import Head from "next/head";
-import LogRocket from "logrocket";
+// import LogRocket from "logrocket";
 import mixpanel from "mixpanel-browser";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -18,7 +18,7 @@ const Game = () => {
   };
 
   useEffect(() => {
-    LogRocket.init("4sdo4i/firstreplayio");
+    // LogRocket.init("4sdo4i/firstreplayio");
     mixpanel.init("ffaeda9ef8fb976a520ca3a65bba5014", {
       track_pageview: "url-with-path"
     });
