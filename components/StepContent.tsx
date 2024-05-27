@@ -19,7 +19,7 @@ const StepContent: FC<StepContentProps> = ({ currentStep }) => {
     return (
       <div>
         <h3 className="font-bold text-pink-600">Network events</h3>
-        <p>When you clicked this we made an API call we can inspect later:</p>
+        <p>We just made this API call:</p>
         <div className="text-xs">
           <FetchData />
         </div>
@@ -33,7 +33,7 @@ const StepContent: FC<StepContentProps> = ({ currentStep }) => {
         <h3 className="font-bold text-pink-600">Console logs (on the fly!)</h3>
         <p>
           Replay allows you to set console logs on the fly, which is a game
-          changer. We'll show you how once you're done recording.
+          changer.
         </p>
       </div>
     );

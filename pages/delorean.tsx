@@ -67,29 +67,13 @@ const Home = () => {
               currentStep < 3 ? "animated-gradient-text" : ""
             }`}
           >
-            3 easy steps
+            Getting started
           </div>
-          <span className="mb-12 text-gray-500 text-md">
-            (and you already did one!)
-          </span>
 
-          <ol className="mt-12 leading-7">
-            <li className={`my-4 ${checkedItems[0] ? "checked" : ""}`}>
-              <strong className="text-lg">1. Start recording</strong>
-              <p className="my-1">
-                You probably already did this step! If not, go to your terminal
-                and type
-                <br />
-                <code className="p-1 bg-gray-200 rounded">
-                  npx replayio@latest record first.replay.io
-                </code>
-              </p>
-            </li>
-            <li className={`my-4 ${checkedItems[1] ? "checked" : ""}`}>
-              <strong className="text-lg">2. Click around</strong>
-              <p className="my-1">
-                By clicking, you're adding user events that we can inspect in
-                the replay.
+          <ol className="mt-0 leading-7">
+            <li className={`my-0 ${checkedItems[1] ? "checked" : ""}`}>
+              <p className="mb-3">
+                Click on the links below to capture some events.
               </p>
               <ul>
                 {[1, 2, 3].map((step) => (
@@ -113,17 +97,14 @@ const Home = () => {
                 ))}
               </ul>
             </li>
-            <li className={`my-4 ${checkedItems[2] ? "checked" : ""}`}>
-              <strong className="text-lg">3. Stop recording</strong>
-              <p
-                className={`my-1 ${
-                  animateSuccess ? "animated-gradient-text" : ""
-                }`}
-              >
-                All done! Go back to your terminal and press any key to stop
-                recording.
-              </p>
-            </li>
+            {animateSuccess && (
+              <li className={`my-4 w-96 ${checkedItems[2] ? "checked" : ""}`}>
+                <p className={`my-1 animated-gradient-text`}>
+                  All done! Go back to your terminal and press any key to stop
+                  recording.
+                </p>
+              </li>
+            )}
           </ol>
         </div>
       </div>
