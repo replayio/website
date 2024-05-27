@@ -169,7 +169,7 @@ const Home = () => {
                     {checkedItems[2] && "✔"}
                   </div>
                   <a href="#" onClick={() => handleClick(3)}>
-                    Print Statements
+                    Console logs
                   </a>
                 </li>
               </ul>
