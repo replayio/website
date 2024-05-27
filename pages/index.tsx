@@ -98,11 +98,12 @@ const Home = () => {
               </ul>
             </li>
             {animateSuccess && (
-              <li className={`my-4 w-96 ${checkedItems[2] ? "checked" : ""}`}>
-                <p className={`my-1 animated-gradient-text`}>
-                  All done! Go back to your terminal and press any key to stop
-                  recording.
-                </p>
+              <li className={`my-4 w-112 ${checkedItems[2] ? "checked" : ""}`}>
+                <div className="px-4 py-2 border rounded-lg shadow-sm card">
+                  <p className="animated-gradient-text-2">
+                    To stop recording, press any key in your terminal.
+                  </p>
+                </div>
               </li>
             )}
           </ol>

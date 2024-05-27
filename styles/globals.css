@@ -72,3 +72,13 @@ a {
   background-clip: text;
   animation: gradient-flow 4s ease infinite;
 }
+
+.animated-gradient-text-2 {
+  background: linear-gradient(90deg, #0077b6, #0096c7, #00b4d8, #030ea3);
+  background-size: 200% 200%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: gradient-flow 4s ease infinite;
+  font-weight: medium;
+}

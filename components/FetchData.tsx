@@ -9,7 +9,7 @@ const FetchData = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://jsonplaceholder.typicode.com/todos/1"
+          "https://jsonplaceholder.typicode.com/todos/4"
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
