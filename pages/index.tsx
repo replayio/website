@@ -1,48 +1,23 @@
-import { useEffect, useState, useRef } from "react";
-import clsx from "clsx";
+import { useEffect, useState } from "react";
 import Head from "next/head";
-// import LogRocket from "logrocket";
+import StepContent from "../components/StepContent";
+import Icons from "../components/Icons";
 import mixpanel from "mixpanel-browser";
 import { Analytics } from "@vercel/analytics/react";
 
-const Game = () => {
-  const [gameState, setGameState] = useState<"initial" | "ended">("initial");
-  const possibleCards = ["doc", "clocktower", "delorean", "hoverboard"];
-  const [cards, setCards] = useState(["doc", "clocktower", "delorean"]);
-  const getRandomCard = (cardIndexToAvoid: number) => {
-    const randomIndex = Math.floor(Math.random() * possibleCards.length);
-    if (randomIndex !== cardIndexToAvoid) {
-      return possibleCards[randomIndex];
-    }
-    return getRandomCard(cardIndexToAvoid);
-  };
+const Home = () => {
+  const [showDiv, setShowDiv] = useState(false);
+  const [currentStep, setCurrentStep] = useState(0);
+  const [checkedItems, setCheckedItems] = useState([false, false, false]);
+  const [animateSuccess, setAnimateSuccess] = useState(false);
 
   useEffect(() => {
-    // LogRocket.init("4sdo4i/firstreplayio");
+    printWelcomeMessage();
+
     mixpanel.init("ffaeda9ef8fb976a520ca3a65bba5014", {
       track_pageview: "url-with-path"
     });
     mixpanel.track("Loaded first.replay.io");
-  }, []);
-
-  useEffect(() => {
-    printWelcomeMessage();
-  }, []);
-
-  useEffect(() => {
-    if (gameState === "ended") {
-      return;
-    }
-    if (cards.every((c) => c === cards[0])) {
-      setGameState("ended");
-    }
-  }, [cards]);
-
-  useEffect(() => {
-    // preload images
-    possibleCards.forEach((c) => {
-      new Image().src = `/demo/demo_${c}.png`;
-    });
   }, []);
 
   function printWelcomeMessage() {
@@ -58,97 +33,97 @@ const Game = () => {
     console.log("Say hi in Discord: replay.io/discord");
   }
 
+  const handleClick = (step: number) => {
+    setCurrentStep(step);
+    const newCheckedItems = [...checkedItems];
+    newCheckedItems[step - 1] = true;
+    setCheckedItems(newCheckedItems);
+
+    const allStepsCompleted = newCheckedItems.every((item) => item);
+    setAnimateSuccess(allStepsCompleted);
+  };
+
   return (
-    <div
-      className={clsx(
-        "fixed z-50 grid items-start justify-start w-full h-full",
-        gameState === "ended"
-          ? "bg-blue-200 text-black"
-          : "text-white bg-gray-800"
-      )}
-    >
-      <Head>
-        <title>⭐️ Your first replay</title>
-      </Head>
+    <div className="bg-[url('/grandcanyon-delorean.jpeg')] bg-cover bg-center h-screen flex justify-center items-center relative overflow-hidden">
       <Analytics debug={false} />
-      <div className="z-40 flex flex-col min-h-screen pt-6 pb-12 m-6 prose main">
-        <main className="flex flex-col justify-start flex-grow w-full max-w-3xl px-4 mx-auto sm:px-6 lg:px-8">
-          <h1 className="mt-2 text-4xl font-medium tracking-tight sm:text-5xl">
-            Three steps to your first replay
-          </h1>
-          <section className="my-8 space-y-2">
-            <h2 className="text-lg font-medium">
-              1. Start recording this page
-            </h2>
-            <p>
-              <code className="p-2 text-white bg-gray-900 rounded">
-                npx replayio@latest record first.replay.io
-              </code>{" "}
-              is how to record from your terminal.
-            </p>
-          </section>
-          <section className="mb-8">
-            <h2 className="text-lg font-medium">2. Click around!</h2>
-            <p>
-              By clicking, you're adding user events that we can inspect in the
-              replay. <br />
-              Try clicking these Back to the Future images to get three in a
-              row:
-            </p>
-            <div className="z-40 grid grid-cols-5 gap-1 mt-3">
-              {cards.map((c, i) => (
-                <button
-                  key={i}
-                  onClick={() => {
-                    const newCards = [...cards];
-                    newCards[i] = getRandomCard(possibleCards.indexOf(c));
-                    setCards(newCards);
-                  }}
-                  className={`w-24 h-24 bg-cover border-4 border-white rounded-full ${c}`}
-                ></button>
-              ))}
-            </div>
-          </section>
-          <section className="space-y-0">
-            <h2 className="text-lg font-medium">3. Stop recording</h2>
+      <Head>
+        <title>⭐️ first.replay.io</title>
+      </Head>
 
-            <p>All done! Stop recording and we'll show you the replay.</p>
-          </section>
+      {!showDiv && (
+        <button onClick={() => setShowDiv(true)} className="get-started">
+          Get started with Replay
+        </button>
+      )}
 
-          <section className="my-8">
-            <h2 className="text-lg font-medium">Resources</h2>
+      <div
+        className={`absolute top-0 ${
+          showDiv ? "left-0" : "-left-1/2"
+        } w-1/2 h-full bg-white transition-all duration-500 ease-in-out flex justify-center items-center z-0 p-5 box-border`}
+      >
+        <div className="m-12 text-left text-gray-800">
+          <div
+            className={`mb-0 text-4xl font-bold ${
+              currentStep < 3 ? "animated-gradient-text" : ""
+            }`}
+          >
+            Getting started
+          </div>
 
-            <p>
-              If you need help, feel free to{" "}
-              <a
-                href="http://replay.io/discord"
-                rel="noopener noreferrer"
-                className="underline"
-              >
-                chat with us on Discord
-              </a>
-              ,{" "}
-              <a
-                href="http://replay.io/contact"
-                rel="noopener noreferrer"
-                className="underline"
-              >
-                file a ticket
-              </a>
-              , or read our{" "}
-              <a
-                href="https://docs.replay.io"
-                rel="noopener noreferrer"
-                className="underline"
-              >
-                documentation
-              </a>
-              . Happy time traveling!
-            </p>
-          </section>
-        </main>
+          <ol className="mt-0 leading-7">
+            <li className={`my-0 ${checkedItems[1] ? "checked" : ""}`}>
+              <p className="mb-3">
+                Click on the links below to capture some events.
+              </p>
+              <ul>
+                {[1, 2, 3].map((step) => (
+                  <li
+                    key={step}
+                    className={`flex items-center my-2 ${
+                      checkedItems[step - 1] ? "checked" : ""
+                    }`}
+                  >
+                    <div className="w-5 h-5 mr-2.5 flex justify-center items-center">
+                      <Icons
+                        type={checkedItems[step - 1] ? "check" : "circle"}
+                      />
+                    </div>
+                    <a href="#" onClick={() => handleClick(step)}>
+                      {step === 1 && "Click me first"}
+                      {step === 2 && "Network Events"}
+                      {step === 3 && "Console logs"}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </li>
+            {animateSuccess && (
+              <li className={`my-4 w-96 ${checkedItems[2] ? "checked" : ""}`}>
+                <p className={`my-1 animated-gradient-text`}>
+                  All done! Go back to your terminal and press any key to stop
+                  recording.
+                </p>
+              </li>
+            )}
+          </ol>
+        </div>
       </div>
+
+      {currentStep > 0 && (
+        <div
+          className="absolute z-20 p-5 transition-opacity duration-500 ease-in-out bg-white rounded-lg shadow-lg"
+          style={{
+            width: "300px",
+            top: "50%",
+            left: "51%",
+            transform: "translateY(-50%)"
+          }}
+        >
+          <StepContent currentStep={currentStep} />
+        </div>
+      )}
     </div>
   );
 };
-export default Game;
+
+export default Home;
