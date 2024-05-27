@@ -1,16 +1,12 @@
 import React, { useState } from "react";
 import Head from "next/head";
-import FetchData from "../components/FetchData"; // Import the FetchData component
+import FetchData from "../components/FetchData";
+import Icons from "../components/Icons"; // Import the Icons component
 
 const Home = () => {
   const [showDiv, setShowDiv] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
-  const [checkedItems, setCheckedItems] = useState([
-    false,
-    false,
-    false,
-    false
-  ]);
+  const [checkedItems, setCheckedItems] = useState([false, false, false]);
   const [showSuccess, setShowSuccess] = useState(false);
   const [animateSuccess, setAnimateSuccess] = useState(false);
 
@@ -22,7 +18,7 @@ const Home = () => {
 
     if (step === 3) {
       setShowSuccess(true);
-      setAnimateSuccess(true); // Trigger the animation
+      setAnimateSuccess(true);
       setShowSuccess(false);
     }
   };
@@ -43,14 +39,11 @@ const Home = () => {
       }}
     >
       <Head>
-        <title>Interactive Tutorial</title>
+        <title>⭐️ first.replay.io</title>
       </Head>
 
       {!showDiv && (
-        <button
-          onClick={() => setShowDiv(true)}
-          className="get-started" // Add this line to apply the animation
-        >
+        <button onClick={() => setShowDiv(true)} className="get-started">
           Get started with time travel
         </button>
       )}
@@ -85,88 +78,82 @@ const Home = () => {
           </span>
 
           <ol className="mt-12 leading-7">
-            <li className="my-4">
+            <li className={`my-4 ${checkedItems[0] ? "checked" : ""}`}>
               <strong className="text-lg">1. Start recording</strong>
               <p className="my-1">
                 You probably already did this step! If not, go to your terminal
                 and type
-                <br />{" "}
+                <br />
                 <code className="p-1 bg-gray-200 rounded">
                   npx replayio@latest record first.replay.io
                 </code>
               </p>
             </li>
-            <li className="my-4">
+            <li className={`my-4 ${checkedItems[1] ? "checked" : ""}`}>
               <strong className="text-lg">2. Click around</strong>
               <p className="my-1">
                 By clicking, you're adding user events that we can inspect in
                 the replay.
               </p>
               <ul>
-                <li className="flex items-center my-2">
+                <li
+                  className={`flex items-center my-2 ${
+                    checkedItems[0] ? "checked" : ""
+                  }`}
+                >
                   <div
                     style={{
                       width: "20px",
                       height: "20px",
-                      borderRadius: "50%",
-                      border: "2px solid #F02D5E",
+                      marginRight: "10px",
                       display: "flex",
                       justifyContent: "center",
-                      alignItems: "center",
-                      marginRight: "10px",
-                      backgroundColor: checkedItems[0]
-                        ? "#F02D5E"
-                        : "transparent",
-                      color: "white"
+                      alignItems: "center"
                     }}
                   >
-                    {checkedItems[0] && "✔"}
+                    <Icons type={checkedItems[0] ? "check" : "circle"} />
                   </div>
                   <a href="#" onClick={() => handleClick(1)}>
                     Click me first
                   </a>
                 </li>
-                <li className="flex items-center my-2">
+                <li
+                  className={`flex items-center my-2 ${
+                    checkedItems[1] ? "checked" : ""
+                  }`}
+                >
                   <div
                     style={{
                       width: "20px",
                       height: "20px",
-                      borderRadius: "50%",
-                      border: "2px solid #F02D5E",
+                      marginRight: "10px",
                       display: "flex",
                       justifyContent: "center",
-                      alignItems: "center",
-                      marginRight: "10px",
-                      backgroundColor: checkedItems[1]
-                        ? "#F02D5E"
-                        : "transparent",
-                      color: "white"
+                      alignItems: "center"
                     }}
                   >
-                    {checkedItems[1] && "✔"}
+                    <Icons type={checkedItems[1] ? "check" : "circle"} />
                   </div>
                   <a href="#" onClick={() => handleClick(2)}>
                     Network Events
                   </a>
                 </li>
-                <li className="flex items-center my-2">
+                <li
+                  className={`flex items-center my-2 ${
+                    checkedItems[2] ? "checked" : ""
+                  }`}
+                >
                   <div
                     style={{
                       width: "20px",
                       height: "20px",
-                      borderRadius: "50%",
-                      border: "2px solid #F02D5E",
+                      marginRight: "10px",
                       display: "flex",
                       justifyContent: "center",
-                      alignItems: "center",
-                      marginRight: "10px",
-                      backgroundColor: checkedItems[2]
-                        ? "#F02D5E"
-                        : "transparent",
-                      color: "white"
+                      alignItems: "center"
                     }}
                   >
-                    {checkedItems[2] && "✔"}
+                    <Icons type={checkedItems[2] ? "check" : "circle"} />
                   </div>
                   <a href="#" onClick={() => handleClick(3)}>
                     Console logs
@@ -174,9 +161,8 @@ const Home = () => {
                 </li>
               </ul>
             </li>
-            <li className="my-4">
+            <li className={`my-4 ${checkedItems[2] ? "checked" : ""}`}>
               <strong className="text-lg">3. Stop recording</strong>
-
               <p
                 className={`my-1 ${
                   animateSuccess ? "animated-gradient-text" : ""
