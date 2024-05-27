@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import FetchData from "../components/FetchData";
-import Icons from "../components/Icons"; // Import the Icons component
+import Icons from "../components/Icons";
+import mixpanel from "mixpanel-browser";
+import { Analytics } from "@vercel/analytics/react";
 
 const Home = () => {
   const [showDiv, setShowDiv] = useState(false);
@@ -9,6 +11,27 @@ const Home = () => {
   const [checkedItems, setCheckedItems] = useState([false, false, false]);
   const [showSuccess, setShowSuccess] = useState(false);
   const [animateSuccess, setAnimateSuccess] = useState(false);
+
+  useEffect(() => {
+    printWelcomeMessage();
+    mixpanel.init("ffaeda9ef8fb976a520ca3a65bba5014", {
+      track_pageview: "url-with-path"
+    });
+    mixpanel.track("Loaded first.replay.io");
+  }, []);
+
+  function printWelcomeMessage() {
+    console.log("Welcome to Replay!👋 Here's how to get started");
+    console.log("1. Hover over this line");
+    console.log(
+      "2. Notice the rewind/fast forward button to the left? Click it."
+    );
+    console.log(
+      "3. Now the source code will appear on the left. Click the plus icon to add a print statement."
+    );
+    console.log("");
+    console.log("Say hi in Discord: replay.io/discord");
+  }
 
   const handleClick = (step: number) => {
     setCurrentStep(step);
@@ -26,8 +49,7 @@ const Home = () => {
   return (
     <div
       style={{
-        backgroundImage:
-          "url('https://cdn.midjourney.com/e6834ba8-9d4e-4986-b928-7766a11f42cd/0_0.jpeg')",
+        backgroundImage: "url('/grandcanyon-delorean.jpeg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         height: "100vh",
@@ -38,6 +60,7 @@ const Home = () => {
         overflow: "hidden"
       }}
     >
+      <Analytics debug={false} />
       <Head>
         <title>⭐️ first.replay.io</title>
       </Head>
