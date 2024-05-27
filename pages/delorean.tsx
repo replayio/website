@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
-import FetchData from "../components/FetchData";
+import StepContent from "../components/StepContent";
 import Icons from "../components/Icons";
 import mixpanel from "mixpanel-browser";
 import { Analytics } from "@vercel/analytics/react";
@@ -9,11 +9,11 @@ const Home = () => {
   const [showDiv, setShowDiv] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [checkedItems, setCheckedItems] = useState([false, false, false]);
-  const [showSuccess, setShowSuccess] = useState(false);
   const [animateSuccess, setAnimateSuccess] = useState(false);
 
   useEffect(() => {
     printWelcomeMessage();
+
     mixpanel.init("ffaeda9ef8fb976a520ca3a65bba5014", {
       track_pageview: "url-with-path"
     });
@@ -39,27 +39,12 @@ const Home = () => {
     newCheckedItems[step - 1] = true;
     setCheckedItems(newCheckedItems);
 
-    if (step === 3) {
-      setShowSuccess(true);
-      setAnimateSuccess(true);
-      setShowSuccess(false);
-    }
+    const allStepsCompleted = newCheckedItems.every((item) => item);
+    setAnimateSuccess(allStepsCompleted);
   };
 
   return (
-    <div
-      style={{
-        backgroundImage: "url('/grandcanyon-delorean.jpeg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        height: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        position: "relative",
-        overflow: "hidden"
-      }}
-    >
+    <div className="bg-[url('/grandcanyon-delorean.jpeg')] bg-cover bg-center h-screen flex justify-center items-center relative overflow-hidden">
       <Analytics debug={false} />
       <Head>
         <title>⭐️ first.replay.io</title>
@@ -67,26 +52,14 @@ const Home = () => {
 
       {!showDiv && (
         <button onClick={() => setShowDiv(true)} className="get-started">
-          Get started with time travel
+          Get started with Replay
         </button>
       )}
 
       <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: showDiv ? 0 : "-50%",
-          width: "50%",
-          height: "100%",
-          backgroundColor: "white",
-          transition: "left 0.5s ease-in-out",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          zIndex: 0,
-          padding: "20px",
-          boxSizing: "border-box"
-        }}
+        className={`absolute top-0 ${
+          showDiv ? "left-0" : "-left-1/2"
+        } w-1/2 h-full bg-white transition-all duration-500 ease-in-out flex justify-center items-center z-0 p-5 box-border`}
       >
         <div className="m-12 text-left text-gray-800">
           <div
@@ -94,7 +67,7 @@ const Home = () => {
               currentStep < 3 ? "animated-gradient-text" : ""
             }`}
           >
-            Time travel in 3 easy steps
+            3 easy steps
           </div>
           <span className="mb-12 text-gray-500 text-md">
             (and you already did one!)
@@ -119,69 +92,25 @@ const Home = () => {
                 the replay.
               </p>
               <ul>
-                <li
-                  className={`flex items-center my-2 ${
-                    checkedItems[0] ? "checked" : ""
-                  }`}
-                >
-                  <div
-                    style={{
-                      width: "20px",
-                      height: "20px",
-                      marginRight: "10px",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center"
-                    }}
+                {[1, 2, 3].map((step) => (
+                  <li
+                    key={step}
+                    className={`flex items-center my-2 ${
+                      checkedItems[step - 1] ? "checked" : ""
+                    }`}
                   >
-                    <Icons type={checkedItems[0] ? "check" : "circle"} />
-                  </div>
-                  <a href="#" onClick={() => handleClick(1)}>
-                    Click me first
-                  </a>
-                </li>
-                <li
-                  className={`flex items-center my-2 ${
-                    checkedItems[1] ? "checked" : ""
-                  }`}
-                >
-                  <div
-                    style={{
-                      width: "20px",
-                      height: "20px",
-                      marginRight: "10px",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center"
-                    }}
-                  >
-                    <Icons type={checkedItems[1] ? "check" : "circle"} />
-                  </div>
-                  <a href="#" onClick={() => handleClick(2)}>
-                    Network Events
-                  </a>
-                </li>
-                <li
-                  className={`flex items-center my-2 ${
-                    checkedItems[2] ? "checked" : ""
-                  }`}
-                >
-                  <div
-                    style={{
-                      width: "20px",
-                      height: "20px",
-                      marginRight: "10px",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center"
-                    }}
-                  >
-                    <Icons type={checkedItems[2] ? "check" : "circle"} />
-                  </div>
-                  <a href="#" onClick={() => handleClick(3)}>
-                    Console logs
-                  </a>
-                </li>
+                    <div className="w-5 h-5 mr-2.5 flex justify-center items-center">
+                      <Icons
+                        type={checkedItems[step - 1] ? "check" : "circle"}
+                      />
+                    </div>
+                    <a href="#" onClick={() => handleClick(step)}>
+                      {step === 1 && "Click me first"}
+                      {step === 2 && "Network Events"}
+                      {step === 3 && "Console logs"}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </li>
             <li className={`my-4 ${checkedItems[2] ? "checked" : ""}`}>
@@ -201,49 +130,15 @@ const Home = () => {
 
       {currentStep > 0 && (
         <div
+          className="absolute z-20 p-5 transition-opacity duration-500 ease-in-out bg-white rounded-lg shadow-lg"
           style={{
-            position: "absolute",
-            top: "20px",
-            right: "20px",
             width: "300px",
-            backgroundColor: "white",
-            borderRadius: "12px",
-            boxShadow: "0px 4px 16px rgba(0, 0, 0, 0.25)",
-            padding: "20px",
-            zIndex: 2,
-            transition: "opacity 0.5s ease-in-out"
+            top: "50%",
+            left: "51%",
+            transform: "translateY(-50%)"
           }}
         >
-          {currentStep === 1 && (
-            <div>
-              <h3 className="font-bold text-pink-600">Capturing events</h3>
-              <p>
-                Replay captured that mouse event so we can inspect it later.
-              </p>
-            </div>
-          )}
-          {currentStep === 2 && (
-            <div>
-              <h3 className="font-bold text-pink-600">Network events</h3>
-              <p>
-                When you clicked this we made an API call we can inspect later:
-              </p>
-              <div className="text-xs">
-                <FetchData />
-              </div>
-            </div>
-          )}
-          {currentStep === 3 && (
-            <div>
-              <h3 className="font-bold text-pink-600">
-                Console logs (on the fly!)
-              </h3>
-              <p>
-                Replay allows you to set console logs on the fly, which is a
-                game changer. We'll show you how once you're done recording.
-              </p>
-            </div>
-          )}
+          <StepContent currentStep={currentStep} />
         </div>
       )}
     </div>
