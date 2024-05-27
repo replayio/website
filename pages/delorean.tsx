@@ -1,15 +1,30 @@
 import React, { useState } from "react";
 import Head from "next/head";
+import FetchData from "../components/FetchData"; // Import the FetchData component
 
 const Home = () => {
   const [showDiv, setShowDiv] = useState(false);
-  const [buttonOpacity, setButtonOpacity] = useState(1);
+  const [currentStep, setCurrentStep] = useState(0);
+  const [checkedItems, setCheckedItems] = useState([
+    false,
+    false,
+    false,
+    false
+  ]);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [animateSuccess, setAnimateSuccess] = useState(false);
 
-  const handleClick = () => {
-    // Start fading out the button
-    setButtonOpacity(0);
-    // After the fade out transition, hide the div
-    setTimeout(() => setShowDiv(true), 500); // 500ms for the fade out duration
+  const handleClick = (step: number) => {
+    setCurrentStep(step);
+    const newCheckedItems = [...checkedItems];
+    newCheckedItems[step - 1] = true;
+    setCheckedItems(newCheckedItems);
+
+    if (step === 3) {
+      setShowSuccess(true);
+      setAnimateSuccess(true); // Trigger the animation
+      setShowSuccess(false);
+    }
   };
 
   return (
@@ -28,29 +43,18 @@ const Home = () => {
       }}
     >
       <Head>
-        <title>Centered Button</title>
+        <title>Interactive Tutorial</title>
       </Head>
+
       {!showDiv && (
         <button
-          onClick={handleClick}
-          style={{
-            padding: "10px 20px",
-            fontSize: "16px",
-            fontWeight: "bold",
-            color: "white",
-            backgroundColor: "#F02D5E",
-            border: "none",
-            borderRadius: "64px",
-            boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-            cursor: "pointer",
-            zIndex: 1,
-            opacity: buttonOpacity,
-            transition: "opacity 0.5s ease-in-out" // Added transition for opacity
-          }}
+          onClick={() => setShowDiv(true)}
+          className="get-started" // Add this line to apply the animation
         >
-          Learn to time travel
+          Get started with time travel
         </button>
       )}
+
       <div
         style={{
           position: "absolute",
@@ -69,16 +73,20 @@ const Home = () => {
         }}
       >
         <div className="m-12 text-left text-gray-800">
-          <div className="mb-0 text-4xl text-pink-600">
+          <div
+            className={`mb-0 text-4xl font-bold ${
+              currentStep < 3 ? "animated-gradient-text" : ""
+            }`}
+          >
             Time travel in 3 easy steps
           </div>
-          <span className="mb-12 text-lg text-gray-500">
+          <span className="mb-12 text-gray-500 text-md">
             (and you already did one!)
           </span>
 
           <ol className="mt-12 leading-7">
-            <li className="mb-2.5">
-              <strong className="text-lg">1. Start recording this page</strong>
+            <li className="my-4">
+              <strong className="text-lg">1. Start recording</strong>
               <p className="my-1">
                 You probably already did this step! If not, go to your terminal
                 and type
@@ -88,25 +96,147 @@ const Home = () => {
                 </code>
               </p>
             </li>
-            <li className="mb-2.5">
-              <strong className="text-lg">2. Click around!</strong>
+            <li className="my-4">
+              <strong className="text-lg">2. Click around</strong>
               <p className="my-1">
                 By clicking, you're adding user events that we can inspect in
                 the replay.
-                <br />
-                Try clicking these Back to the Future images to get three in a
-                row:
               </p>
+              <ul>
+                <li className="flex items-center my-2">
+                  <div
+                    style={{
+                      width: "20px",
+                      height: "20px",
+                      borderRadius: "50%",
+                      border: "2px solid #F02D5E",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      marginRight: "10px",
+                      backgroundColor: checkedItems[0]
+                        ? "#F02D5E"
+                        : "transparent",
+                      color: "white"
+                    }}
+                  >
+                    {checkedItems[0] && "✔"}
+                  </div>
+                  <a href="#" onClick={() => handleClick(1)}>
+                    Click me first
+                  </a>
+                </li>
+                <li className="flex items-center my-2">
+                  <div
+                    style={{
+                      width: "20px",
+                      height: "20px",
+                      borderRadius: "50%",
+                      border: "2px solid #F02D5E",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      marginRight: "10px",
+                      backgroundColor: checkedItems[1]
+                        ? "#F02D5E"
+                        : "transparent",
+                      color: "white"
+                    }}
+                  >
+                    {checkedItems[1] && "✔"}
+                  </div>
+                  <a href="#" onClick={() => handleClick(2)}>
+                    Network Events
+                  </a>
+                </li>
+                <li className="flex items-center my-2">
+                  <div
+                    style={{
+                      width: "20px",
+                      height: "20px",
+                      borderRadius: "50%",
+                      border: "2px solid #F02D5E",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      marginRight: "10px",
+                      backgroundColor: checkedItems[2]
+                        ? "#F02D5E"
+                        : "transparent",
+                      color: "white"
+                    }}
+                  >
+                    {checkedItems[2] && "✔"}
+                  </div>
+                  <a href="#" onClick={() => handleClick(3)}>
+                    Print Statements
+                  </a>
+                </li>
+              </ul>
             </li>
-            <li className="mb-2.5">
+            <li className="my-4">
               <strong className="text-lg">3. Stop recording</strong>
-              <p className="my-1">
-                All done! Stop recording and we'll show you the replay.
+
+              <p
+                className={`my-1 ${
+                  animateSuccess ? "animated-gradient-text" : ""
+                }`}
+              >
+                All done! Go back to your terminal and press any key to stop
+                recording.
               </p>
             </li>
           </ol>
         </div>
       </div>
+
+      {currentStep > 0 && (
+        <div
+          style={{
+            position: "absolute",
+            top: "20px",
+            right: "20px",
+            width: "300px",
+            backgroundColor: "white",
+            borderRadius: "12px",
+            boxShadow: "0px 4px 16px rgba(0, 0, 0, 0.25)",
+            padding: "20px",
+            zIndex: 2,
+            transition: "opacity 0.5s ease-in-out"
+          }}
+        >
+          {currentStep === 1 && (
+            <div>
+              <h3 className="font-bold text-pink-600">Capturing events</h3>
+              <p>
+                Replay captured that mouse event so we can inspect it later.
+              </p>
+            </div>
+          )}
+          {currentStep === 2 && (
+            <div>
+              <h3 className="font-bold text-pink-600">Network events</h3>
+              <p>
+                When you clicked this we made an API call we can inspect later:
+              </p>
+              <div className="text-xs">
+                <FetchData />
+              </div>
+            </div>
+          )}
+          {currentStep === 3 && (
+            <div>
+              <h3 className="font-bold text-pink-600">
+                Console logs (on the fly!)
+              </h3>
+              <p>
+                Replay allows you to set console logs on the fly, which is a
+                game changer. We'll show you how once you're done recording.
+              </p>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 };
