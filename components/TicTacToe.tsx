@@ -103,7 +103,7 @@ const TicTacToe: React.FC = () => {
             <div className="flex">
               <div className="flex items-center flex-grow">
                 <div className="mr-2">
-                  <Icons type={winner === "X" ? "" : "terminal"} />
+                  {winner !== "X" && <Icons type="terminal" />}
                 </div>
                 <h2 className="animated-gradient-text-2">
                   {winner === "X"
