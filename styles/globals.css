@@ -82,3 +82,32 @@ a {
   animation: gradient-flow 4s ease infinite;
   font-weight: medium;
 }
+
+.fade-in-up {
+  opacity: 1;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  background-color: red;
+}
+
+.fade-in-up-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 3.5s ease-out, transform 3.5s ease-out;
+  background-color: blue;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animated-entrance {
+  animation: fadeInUp 0.5s ease-out forwards;
+}

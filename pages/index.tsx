@@ -70,42 +70,67 @@ const Home = () => {
             Getting started
           </div>
 
-          <ol className="mt-0 leading-7">
+          <ol className="mt-0 leading-7 w-96">
             <li className={`my-0 ${checkedItems[1] ? "checked" : ""}`}>
               <p className="mb-3">
                 Click on the links below to capture some events.
               </p>
-              <ul>
-                {[1, 2, 3].map((step) => (
-                  <li
-                    key={step}
-                    className={`flex items-center my-2 ${
-                      checkedItems[step - 1] ? "checked" : ""
-                    }`}
-                  >
-                    <div className="w-5 h-5 mr-2.5 flex justify-center items-center">
-                      <Icons
-                        type={checkedItems[step - 1] ? "check" : "circle"}
-                      />
-                    </div>
-                    <a href="#" onClick={() => handleClick(step)}>
-                      {step === 1 && "Click me first"}
-                      {step === 2 && "Network Events"}
-                      {step === 3 && "Console logs"}
-                    </a>
-                  </li>
-                ))}
-              </ul>
             </li>
-            {animateSuccess && (
-              <li className={`my-4 w-112 ${checkedItems[2] ? "checked" : ""}`}>
-                <div className="px-4 py-2 border rounded-lg shadow-sm card">
-                  <p className="animated-gradient-text-2">
-                    To stop recording, press any key in your terminal.
-                  </p>
-                </div>
-              </li>
-            )}
+            <li
+              key={1}
+              className={`flex items-center my-2 ${
+                checkedItems[0] ? "checked" : ""
+              }`}
+            >
+              <div className="w-5 h-5 mr-2.5 flex justify-center items-center">
+                <Icons type={checkedItems[0] ? "check" : "circle"} />
+              </div>
+              <a href="#" onClick={() => handleClick(1)}>
+                Click me first
+              </a>
+            </li>
+            <li
+              key={2}
+              className={`flex items-center my-2 ${
+                checkedItems[1] ? "checked" : ""
+              }`}
+            >
+              <div className="w-5 h-5 mr-2.5 flex justify-center items-center">
+                <Icons type={checkedItems[1] ? "check" : "circle"} />
+              </div>
+              <a href="#" onClick={() => handleClick(2)}>
+                Network Events
+              </a>
+            </li>
+            <li
+              key={3}
+              className={`flex items-center my-2 ${
+                checkedItems[2] ? "checked" : ""
+              }`}
+            >
+              <div className="w-5 h-5 mr-2.5 flex justify-center items-center">
+                <Icons type={checkedItems[2] ? "check" : "circle"} />
+              </div>
+              <a href="#" onClick={() => handleClick(3)}>
+                Console logs
+              </a>
+            </li>
+            <li
+              className={`flex items-center my-2 checked ${
+                animateSuccess ? "animated-entrance" : "invisible"
+              }`}
+            >
+              <div className="w-5 h-5 mr-2.5 flex justify-center items-center">
+                <Icons type="terminal" />
+              </div>
+              <p
+                className={`animated-gradient-text-2 ${
+                  animateSuccess ? "" : "invisible"
+                }`}
+              >
+                Done! Press any key in your terminal.
+              </p>
+            </li>
           </ol>
         </div>
       </div>
