@@ -78,7 +78,7 @@ const TicTacToe: React.FC = () => {
     <>
       <div className="flex items-center justify-between">
         <div className="text-2xl font-bold animated-gradient-text">
-          Get started with a game
+          Get three in a row!
         </div>
         <div className="text-2xl font-bold cursor-pointer" onClick={resetGame}>
           {isGameOver(board) && <Icons type="refresh" />}
