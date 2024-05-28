@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import StepContent from "../components/StepContent";
+import Icons from "../components/Icons";
 import mixpanel from "mixpanel-browser";
 import { Analytics } from "@vercel/analytics/react";
-import TicTacToe from "../components/TicTacToe";
 
 const Home = () => {
   const [showDiv, setShowDiv] = useState(false);
@@ -61,8 +61,77 @@ const Home = () => {
           showDiv ? "left-0" : "-left-1/2"
         } w-1/2 h-full bg-white transition-all duration-500 ease-in-out flex justify-center items-center z-0 p-5 box-border`}
       >
-        <div className="m-12 text-left text-gray-800 ">
-          <TicTacToe />
+        <div className="m-12 text-left text-gray-800">
+          <div
+            className={`mb-0 text-4xl font-bold ${
+              currentStep < 3 ? "animated-gradient-text" : ""
+            }`}
+          >
+            Getting started
+          </div>
+
+          <ol className="mt-0 leading-7 w-96">
+            <li className={`my-0 ${checkedItems[1] ? "checked" : ""}`}>
+              <p className="mb-3">
+                Click on the links below to capture some events.
+              </p>
+            </li>
+            <li
+              key={1}
+              className={`flex items-center my-2 ${
+                checkedItems[0] ? "checked" : ""
+              }`}
+            >
+              <div className="w-5 h-5 mr-2.5 flex justify-center items-center">
+                <Icons type={checkedItems[0] ? "check" : "circle"} />
+              </div>
+              <a href="#" onClick={() => handleClick(1)}>
+                Click me first
+              </a>
+            </li>
+            <li
+              key={2}
+              className={`flex items-center my-2 ${
+                checkedItems[1] ? "checked" : ""
+              }`}
+            >
+              <div className="w-5 h-5 mr-2.5 flex justify-center items-center">
+                <Icons type={checkedItems[1] ? "check" : "circle"} />
+              </div>
+              <a href="#" onClick={() => handleClick(2)}>
+                Network Events
+              </a>
+            </li>
+            <li
+              key={3}
+              className={`flex items-center my-2 ${
+                checkedItems[2] ? "checked" : ""
+              }`}
+            >
+              <div className="w-5 h-5 mr-2.5 flex justify-center items-center">
+                <Icons type={checkedItems[2] ? "check" : "circle"} />
+              </div>
+              <a href="#" onClick={() => handleClick(3)}>
+                Console logs
+              </a>
+            </li>
+            <li
+              className={`flex items-center my-2 checked ${
+                animateSuccess ? "animated-entrance" : "invisible"
+              }`}
+            >
+              <div className="w-5 h-5 mr-2.5 flex justify-center items-center">
+                <Icons type="terminal" />
+              </div>
+              <p
+                className={`animated-gradient-text-2 ${
+                  animateSuccess ? "" : "invisible"
+                }`}
+              >
+                Done! Press any key in your terminal.
+              </p>
+            </li>
+          </ol>
         </div>
       </div>
 
