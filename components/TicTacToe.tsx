@@ -8,7 +8,13 @@ const TicTacToe: React.FC = () => {
   const [winner, setWinner] = useState<Player>(null);
 
   useEffect(() => {
-    if (currentPlayer === "O" && !winner) {
+    const checkWinner = calculateWinner(board);
+    if (checkWinner) {
+      setWinner(checkWinner);
+      return;
+    }
+
+    if (currentPlayer === "O") {
       const emptyIndices = board
         .map((value, index) => (value === null ? index : null))
         .filter((val) => val !== null);
@@ -18,26 +24,34 @@ const TicTacToe: React.FC = () => {
         const newBoard = [...board];
         newBoard[randomIndex] = "O";
         setBoard(newBoard);
-        setWinner(calculateWinner(newBoard));
         setCurrentPlayer("X");
       }
     }
-  }, [currentPlayer, board, winner]);
+  }, [currentPlayer, board]);
 
   const handleClick = (index: number) => {
-    if (board[index] || winner || currentPlayer !== "X") return;
+    if (board[index] || winner) return;
     const newBoard = [...board];
     newBoard[index] = currentPlayer;
     setBoard(newBoard);
-    setWinner(calculateWinner(newBoard));
-    setCurrentPlayer("O");
+    const checkWinner = calculateWinner(newBoard);
+    if (checkWinner) {
+      setWinner(checkWinner);
+      return;
+    }
+    setCurrentPlayer(currentPlayer === "X" ? "O" : "X");
   };
 
   const calculateWinner = (board: Player[]): Player => {
     const lines = [
       [0, 1, 2],
       [3, 4, 5],
-      [6, 7, 8]
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6]
     ];
 
     for (const [a, b, c] of lines) {
@@ -55,9 +69,9 @@ const TicTacToe: React.FC = () => {
   };
 
   const isGameOver = (board: Player[]): boolean => {
-    const isBoardFull = board.every((cell) => cell !== null);
-    const winner = calculateWinner(board);
-    return winner !== null || isBoardFull;
+    return (
+      calculateWinner(board) !== null || board.every((cell) => cell !== null)
+    );
   };
 
   return (
