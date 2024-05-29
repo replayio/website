@@ -6,15 +6,24 @@ const TicTacToe: React.FC = () => {
   const [board, setBoard] = useState<Player[]>(Array(9).fill(null));
   const [currentPlayer, setCurrentPlayer] = useState<Player>("X");
   const [winner, setWinner] = useState<Player>(null);
+  const [message, setMessage] = useState<string>("Shall we play a game?");
+  const [showMessage, setShowMessage] = useState<boolean>(true);
+  const [moveCount, setMoveCount] = useState<number>(0);
 
   useEffect(() => {
     const checkWinner = calculateWinner(board);
     if (checkWinner) {
       setWinner(checkWinner);
+      setMessage(
+        checkWinner === "X"
+          ? "Nice work! Now press any key in the terminal and we’ll look at the results together."
+          : "I win! You can try again, or press any key in the terminal and we’ll look at the results together."
+      );
+      setShowMessage(true);
       return;
     }
 
-    if (currentPlayer === "O") {
+    if (currentPlayer === "O" && !winner) {
       const emptyIndices = board
         .map((value, index) => (value === null ? index : null))
         .filter((val) => val !== null);
@@ -25,9 +34,26 @@ const TicTacToe: React.FC = () => {
         newBoard[randomIndex] = "O";
         setBoard(newBoard);
         setCurrentPlayer("X");
+        setMoveCount(moveCount + 1);
+        if (moveCount === 1) {
+          setMessage(
+            "Guess what? My algorithm isn’t very good. I’m just picking random moves. The important thing is that Replay is capturing all these actions to investigate when we’re done recording."
+          );
+        } else {
+          const fillerComments = [
+            "I told you my algorithm isn’t very good…",
+            "Maybe I can win! Probably not, though",
+            "Go easy on me!",
+            "I’m hoping for a draw…"
+          ];
+          setMessage(
+            fillerComments[Math.floor(Math.random() * fillerComments.length)]
+          );
+        }
+        setShowMessage(true);
       }
     }
-  }, [currentPlayer, board]);
+  }, [currentPlayer, board, moveCount, winner]);
 
   const handleClick = (index: number) => {
     if (board[index] || winner) return;
@@ -37,9 +63,38 @@ const TicTacToe: React.FC = () => {
     const checkWinner = calculateWinner(newBoard);
     if (checkWinner) {
       setWinner(checkWinner);
+      setMessage(
+        checkWinner === "X"
+          ? "Nice work! Now press any key in the terminal and we’ll look at the results together."
+          : "I win! You can try again, or press any key in the terminal and we’ll look at the results together."
+      );
+      setShowMessage(true);
       return;
     }
-    setCurrentPlayer(currentPlayer === "X" ? "O" : "X");
+
+    if (moveCount === 0) {
+      if (index === 4) {
+        setMessage(
+          "Nice move! Center spot, eh? That’s going to be tough for me to come back from."
+        );
+      } else if ([0, 2, 6, 8].includes(index)) {
+        setMessage("Nice move! You chose a corner.");
+      } else {
+        setMessage("Nice move! You chose an edge.");
+      }
+    } else {
+      setMessage("Your move!");
+    }
+    setShowMessage(true);
+    setMoveCount(moveCount + 1);
+
+    // Hide the message after 2 seconds and then make the computer's move
+    setTimeout(() => {
+      setShowMessage(false);
+      setTimeout(() => {
+        setCurrentPlayer("O");
+      }, 500); // Small delay to ensure the message is hidden before the computer's move
+    }, 2000);
   };
 
   const calculateWinner = (board: Player[]): Player => {
@@ -66,6 +121,9 @@ const TicTacToe: React.FC = () => {
     setBoard(Array(9).fill(null));
     setCurrentPlayer("X");
     setWinner(null);
+    setMessage("Shall we play a game?");
+    setShowMessage(true);
+    setMoveCount(0);
   };
 
   const isGameOver = (board: Player[]): boolean => {
@@ -75,47 +133,39 @@ const TicTacToe: React.FC = () => {
   };
 
   return (
-    <>
-      <div className="flex items-center justify-between">
-        <div className="text-2xl font-bold animated-gradient-text">
-          Get three in a row!
-        </div>
-        <div className="text-2xl font-bold cursor-pointer" onClick={resetGame}>
-          {isGameOver(board) && <Icons type="refresh" />}
-        </div>
-      </div>
-      <div className="flex justify-center mt-3">
-        <div>
-          <div style={styles.board}>
-            {board.map((value, index) => (
-              <div
-                key={index}
-                style={styles.cell}
-                onClick={() => handleClick(index)}
-              >
-                {value}
-              </div>
-            ))}
-          </div>
-          <div
-            className={`${isGameOver(board) ? "block" : "invisible"} congrats`}
-          >
-            <div className="flex">
-              <div className="flex items-center flex-grow">
-                <div className="mr-2">
-                  {winner !== "X" && <Icons type="terminal" />}
-                </div>
-                <h2 className="animated-gradient-text-2">
-                  {winner === "X"
-                    ? "Winner! Press any key in your terminal."
-                    : "Done! Press any key in your terminal."}
-                </h2>
-              </div>
+    <div className="flex justify-center items-start mt-3">
+      <div>
+        <div style={styles.board}>
+          {board.map((value, index) => (
+            <div
+              key={index}
+              style={styles.cell}
+              onClick={() => handleClick(index)}
+            >
+              {value}
             </div>
+          ))}
+        </div>
+      </div>
+      <div className="ml-8 w-64 text-left">
+        {showMessage && (
+          <div className="message-box">
+            <div className="text-lg font-bold animated-gradient-text">
+              Header
+            </div>
+            <p>{message}</p>
+          </div>
+        )}
+        <div className="flex items-center justify-between mt-4">
+          <div
+            className="text-2xl font-bold cursor-pointer"
+            onClick={resetGame}
+          >
+            {isGameOver(board) && <Icons type="refresh" />}
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

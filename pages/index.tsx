@@ -56,21 +56,18 @@ const Home = () => {
         </button>
       )}
 
-      <div
-        className={`absolute top-0 ${
-          showDiv ? "left-0" : "-left-1/2"
-        } w-1/2 h-full bg-white transition-all duration-500 ease-in-out flex justify-center items-center z-0 p-5 box-border`}
-      >
-        <div className="m-12 text-left text-gray-800 ">
-          <TicTacToe />
+      {showDiv && (
+        <div className="rounded-lg shadow-xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white flex justify-center items-center z-50 p-2 box-border">
+          <div className="m-12 text-center text-gray-800 ">
+            <TicTacToe />
+          </div>
         </div>
-      </div>
+      )}
 
       {currentStep > 0 && (
         <div
-          className="absolute z-20 p-5 transition-opacity duration-500 ease-in-out bg-white rounded-lg shadow-lg"
+          className="absolute z-20 p-2 transition-opacity duration-500 ease-in-out bg-white rounded-lg shadow-lg"
           style={{
-            width: "300px",
             top: "50%",
             left: "51%",
             transform: "translateY(-50%)"
