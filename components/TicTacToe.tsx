@@ -7,94 +7,126 @@ const TicTacToe: React.FC = () => {
   const [currentPlayer, setCurrentPlayer] = useState<Player>("X");
   const [winner, setWinner] = useState<Player>(null);
   const [message, setMessage] = useState<string>("Shall we play a game?");
+  const [header, setHeader] = useState<string>("");
   const [showMessage, setShowMessage] = useState<boolean>(true);
   const [moveCount, setMoveCount] = useState<number>(0);
 
   useEffect(() => {
-    const checkWinner = calculateWinner(board);
-    if (checkWinner) {
-      setWinner(checkWinner);
-      setMessage(
-        checkWinner === "X"
-          ? "Nice work! Now press any key in the terminal and we’ll look at the results together."
-          : "I win! You can try again, or press any key in the terminal and we’ll look at the results together."
-      );
-      setShowMessage(true);
-      return;
-    }
-
     if (currentPlayer === "O" && !winner) {
       const emptyIndices = board
         .map((value, index) => (value === null ? index : null))
         .filter((val) => val !== null);
       if (emptyIndices.length > 0) {
-        const randomIndex =
-          emptyIndices[Math.floor(Math.random() * emptyIndices.length)];
-        const newBoard = [...board];
-        newBoard[randomIndex] = "O";
-        setBoard(newBoard);
-        setCurrentPlayer("X");
-        setMoveCount(moveCount + 1);
-        if (moveCount === 1) {
-          setMessage(
-            "Guess what? My algorithm isn’t very good. I’m just picking random moves. The important thing is that Replay is capturing all these actions to investigate when we’re done recording."
-          );
-        } else {
-          const fillerComments = [
-            "I told you my algorithm isn’t very good…",
-            "Maybe I can win! Probably not, though",
-            "Go easy on me!",
-            "I’m hoping for a draw…"
-          ];
-          setMessage(
-            fillerComments[Math.floor(Math.random() * fillerComments.length)]
-          );
-        }
-        setShowMessage(true);
+        setTimeout(() => {
+          const randomIndex =
+            emptyIndices[Math.floor(Math.random() * emptyIndices.length)];
+          const newBoard = [...board];
+          newBoard[randomIndex] = "O";
+          setBoard(newBoard);
+
+          const checkWinner = calculateWinner(newBoard);
+          if (checkWinner) {
+            setWinner(checkWinner);
+            if (checkWinner === "O") {
+              setMessage(
+                "Too bad! Now press any key in the terminal and we’ll look at the results together."
+              );
+            } else {
+              setMessage(
+                "Nice work! Now press any key in the terminal and we’ll look at the results together."
+              );
+            }
+            setShowMessage(true);
+            return;
+          }
+
+          if (isGameOver(newBoard)) {
+            setMessage("It's a draw! Try again.");
+            setShowMessage(true);
+            return;
+          }
+
+          setCurrentPlayer("X");
+        }, Math.random() * (2000 - 500) + 500);
       }
     }
-  }, [currentPlayer, board, moveCount, winner]);
+  }, [currentPlayer, board, winner]);
+
+  useEffect(() => {
+    const messages = [
+      {
+        header: "Oops",
+        message: "I told you my algorithm isn’t very good…"
+      },
+      {
+        header: "Ah ha!",
+        message: "Maybe I can win!"
+      },
+      {
+        header: "Eek",
+        message: "Go easy on me!"
+      },
+      {
+        header: "Doin' my best",
+        message: "I’m hoping for a draw…"
+      }
+    ];
+
+    if (moveCount === 0) {
+      setHeader("Shall we play a game?");
+      setMessage(
+        "Let’s play Tic Tac Toe! It’ll help me explain some of Replay’s best features."
+      );
+    } else if (moveCount === 1) {
+      setHeader("Nice move!");
+      setMessage("Oh, that’s going to be tough for me to come back from.");
+    } else if (moveCount === 2) {
+      setHeader("Guess what?");
+      setMessage(
+        "I’m just picking random moves. The important thing is that Replay is capturing all these actions to investigate when we’re done recording."
+      );
+    } else if (moveCount > 2) {
+      const randomMessage =
+        messages[Math.floor(Math.random() * messages.length)];
+      setMessage(randomMessage.message);
+      setHeader(randomMessage.header);
+    }
+  }, [moveCount]);
 
   const handleClick = (index: number) => {
-    if (board[index] || winner) return;
+    if (board[index] || winner || currentPlayer === "O") return;
     const newBoard = [...board];
     newBoard[index] = currentPlayer;
     setBoard(newBoard);
+
     const checkWinner = calculateWinner(newBoard);
     if (checkWinner) {
       setWinner(checkWinner);
-      setMessage(
-        checkWinner === "X"
-          ? "Nice work! Now press any key in the terminal and we’ll look at the results together."
-          : "I win! You can try again, or press any key in the terminal and we’ll look at the results together."
-      );
+      if (checkWinner === "O") {
+        setHeader("Better luck next time!");
+        setMessage(
+          "Now press any key in the terminal and we’ll look at the results together."
+        );
+      } else {
+        setHeader("Nice work!");
+        setMessage(
+          "Now press any key in the terminal and we’ll look at the results together."
+        );
+      }
       setShowMessage(true);
       return;
     }
 
-    if (moveCount === 0) {
-      if (index === 4) {
-        setMessage(
-          "Nice move! Center spot, eh? That’s going to be tough for me to come back from."
-        );
-      } else if ([0, 2, 6, 8].includes(index)) {
-        setMessage("Nice move! You chose a corner.");
-      } else {
-        setMessage("Nice move! You chose an edge.");
-      }
-    } else {
-      setMessage("Your move!");
+    if (isGameOver(newBoard)) {
+      setHeader("Draw!");
+      setMessage(
+        "Now press any key in the terminal and we’ll look at the results together."
+      );
+      return;
     }
-    setShowMessage(true);
-    setMoveCount(moveCount + 1);
 
-    // Hide the message after 2 seconds and then make the computer's move
-    setTimeout(() => {
-      setShowMessage(false);
-      setTimeout(() => {
-        setCurrentPlayer("O");
-      }, 500); // Small delay to ensure the message is hidden before the computer's move
-    }, 2000);
+    setCurrentPlayer("O");
+    setMoveCount((prevCount) => prevCount + 1);
   };
 
   const calculateWinner = (board: Player[]): Player => {
@@ -108,8 +140,8 @@ const TicTacToe: React.FC = () => {
       [0, 4, 8],
       [2, 4, 6]
     ];
-
-    for (const [a, b, c] of lines) {
+    for (let i = 0; i < lines.length; i++) {
+      const [a, b, c] = lines[i];
       if (board[a] && board[a] === board[b] && board[a] === board[c]) {
         return board[a];
       }
@@ -147,16 +179,19 @@ const TicTacToe: React.FC = () => {
           ))}
         </div>
       </div>
-      <div className="ml-8 w-64 text-left">
+      <div className="ml-8 w-64 text-left relative">
         {showMessage && (
           <div className="message-box">
-            <div className="text-lg font-bold animated-gradient-text">
-              Header
+            <div className="text-2xl font-bold animated-gradient-text mb-4">
+              {header}
             </div>
-            <p>{message}</p>
+            <p className="text-xl">{message}</p>
           </div>
         )}
-        <div className="flex items-center justify-between mt-4">
+        <div
+          className="flex items-center justify-between mt-4 absolute top-0 right-0"
+          style={{ top: "-65px", right: "-35px" }}
+        >
           <div
             className="text-2xl font-bold cursor-pointer"
             onClick={resetGame}
