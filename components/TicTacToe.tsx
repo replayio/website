@@ -81,7 +81,7 @@ const TicTacToe: React.FC = () => {
       } else if (moveCount === 2) {
         setHeader("Guess what?");
         setMessage(
-          "The code is just picking random moves. The important thing is that Replay is capturing all these actions so you can investigate when you're doing recording."
+          "Replay is capturing all these events so you can investigate when you're done recording. That's where the product really shines!"
         );
       }
     }
