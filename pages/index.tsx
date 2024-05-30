@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
-import StepContent from "../components/StepContent";
 import mixpanel from "mixpanel-browser";
 import { Analytics } from "@vercel/analytics/react";
 import TicTacToe from "../components/TicTacToe";
@@ -21,9 +20,7 @@ const Home = () => {
   }, []);
 
   function printWelcomeMessage() {
-    console.log("Welcome to Replay!👋 Here's how to get started");
-    console.log("");
-    console.log("Say hi in Discord: replay.io/discord");
+    console.log("👋 Welcome to Replay! Here's how to get started.");
   }
 
   const handleClick = (step: number) => {

@@ -13,7 +13,6 @@ const TicTacToe: React.FC = () => {
 
   useEffect(() => {
     if (currentPlayer === "O" && !winner) {
-      console.log(winner);
       const emptyIndices = board
         .map((value, index) => (value === null ? index : null))
         .filter((val) => val !== null);
@@ -26,6 +25,7 @@ const TicTacToe: React.FC = () => {
           setBoard(newBoard);
 
           const checkWinner = calculateWinner(newBoard);
+
           if (checkWinner) {
             setWinner(checkWinner);
             if (checkWinner === "O") {
@@ -108,6 +108,12 @@ const TicTacToe: React.FC = () => {
         );
       }
       setShowMessage(true);
+      console.log(
+        "1. Mouse over this line in the console and click to time travel."
+      );
+      console.log(
+        "2. Be sure to check the Network tab to see calls to /api/tictacbot"
+      );
       return;
     }
 
@@ -150,6 +156,7 @@ const TicTacToe: React.FC = () => {
     setMessage("Shall we play a game?");
     setShowMessage(true);
     setMoveCount(0);
+    console.log("Resetting game...");
   };
 
   const isGameOver = (board: Player[]): boolean => {
