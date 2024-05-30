@@ -73,15 +73,15 @@ const TicTacToe: React.FC = () => {
       if (moveCount === 0) {
         setHeader("Shall we play a game?");
         setMessage(
-          "Let’s play Tic Tac Toe! It’ll help me explain some of Replay’s best features."
+          "Let’s play Tic Tac Toe! It’ll help explain some of Replay’s best features."
         );
       } else if (moveCount === 1) {
         setHeader("Nice move!");
-        setMessage("Oh, that’s going to be tough for me to come back from.");
+        setMessage("Oh, this might be a tough match.");
       } else if (moveCount === 2) {
         setHeader("Guess what?");
         setMessage(
-          "I’m just picking random moves. The important thing is that Replay is capturing all these actions to investigate when we’re done recording."
+          "The code is just picking random moves. The important thing is that Replay is capturing all these actions so you can investigate when you're doing recording."
         );
       }
     }
