@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@babel/traverse':
+        specifier: ^7.24.6
+        version: 7.24.6
       '@tailwindcss/typography':
         specifier: ^0.5.9
         version: 0.5.13(tailwindcss@3.4.3)

@@ -17,3 +17,105 @@
 .hoverboard {
   background-image: url("/demo/demo_hoverboard.png");
 }
+
+.slide-in {
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.slide-out {
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+}
+
+a {
+  text-decoration: underline;
+}
+
+.box.animate {
+  animation: bg-spin 3s linear infinite;
+}
+
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.get-started {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(90deg, #ff6a00, #ee0979, #ff6a00);
+  background-size: 200% 200%;
+  animation: gradient-flow 6s ease infinite;
+  border: none;
+  border-radius: 64px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  z-index: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.animated-gradient-text {
+  background: linear-gradient(90deg, #ff6a00, #ee0979, #ff6a00);
+  background-size: 200% 200%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: gradient-flow 4s ease infinite;
+}
+
+.animated-gradient-text-2 {
+  background: linear-gradient(90deg, #0077b6, #0096c7, #00b4d8, #030ea3);
+  background-size: 200% 200%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: gradient-flow 4s ease infinite;
+  font-weight: medium;
+}
+
+.congrats {
+  border: 1px solid rgb(234, 234, 234);
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  margin-top: 10px;
+  padding: 6px;
+}
+
+.fade-in-up {
+  opacity: 1;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  background-color: red;
+}
+
+.fade-in-up-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 3.5s ease-out, transform 3.5s ease-out;
+  background-color: blue;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animated-entrance {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
