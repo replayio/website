@@ -13,6 +13,7 @@ const TicTacToe: React.FC = () => {
 
   useEffect(() => {
     if (currentPlayer === "O" && !winner) {
+      console.log(winner);
       const emptyIndices = board
         .map((value, index) => (value === null ? index : null))
         .filter((val) => val !== null);
@@ -53,43 +54,36 @@ const TicTacToe: React.FC = () => {
   }, [currentPlayer, board, winner]);
 
   useEffect(() => {
-    const messages = [
-      {
-        header: "Oops",
-        message: "I told you my algorithm isn’t very good…"
-      },
-      {
-        header: "Ah ha!",
-        message: "Maybe I can win!"
-      },
-      {
-        header: "Eek",
-        message: "Go easy on me!"
-      },
-      {
-        header: "Doin' my best",
-        message: "I’m hoping for a draw…"
+    if (moveCount > 2) {
+      fetch("/api/tictacbot", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ moveCount })
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.message) {
+            setMessage(data.message.message);
+            setHeader(data.message.header);
+          }
+        });
+    } else {
+      if (moveCount === 0) {
+        setHeader("Shall we play a game?");
+        setMessage(
+          "Let’s play Tic Tac Toe! It’ll help me explain some of Replay’s best features."
+        );
+      } else if (moveCount === 1) {
+        setHeader("Nice move!");
+        setMessage("Oh, that’s going to be tough for me to come back from.");
+      } else if (moveCount === 2) {
+        setHeader("Guess what?");
+        setMessage(
+          "I’m just picking random moves. The important thing is that Replay is capturing all these actions to investigate when we’re done recording."
+        );
       }
-    ];
-
-    if (moveCount === 0) {
-      setHeader("Shall we play a game?");
-      setMessage(
-        "Let’s play Tic Tac Toe! It’ll help me explain some of Replay’s best features."
-      );
-    } else if (moveCount === 1) {
-      setHeader("Nice move!");
-      setMessage("Oh, that’s going to be tough for me to come back from.");
-    } else if (moveCount === 2) {
-      setHeader("Guess what?");
-      setMessage(
-        "I’m just picking random moves. The important thing is that Replay is capturing all these actions to investigate when we’re done recording."
-      );
-    } else if (moveCount > 2) {
-      const randomMessage =
-        messages[Math.floor(Math.random() * messages.length)];
-      setMessage(randomMessage.message);
-      setHeader(randomMessage.header);
     }
   }, [moveCount]);
 

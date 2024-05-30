@@ -1,12 +1,31 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-function calculateWinner(board: any): string {
-  return "winner";
-}
-
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { board } = req.body;
+  const { moveCount } = req.body;
 
-  const gameResult = calculateWinner(board);
-  res.status(200).json({ text: `Game completed with result: ${gameResult}` });
+  const messages = [
+    {
+      header: "Oops",
+      message: "I told you my algorithm isn’t very good…"
+    },
+    {
+      header: "Ah ha!",
+      message: "Maybe I can win!"
+    },
+    {
+      header: "Eek",
+      message: "Go easy on me!"
+    },
+    {
+      header: "Doin' my best",
+      message: "I’m hoping for a draw…"
+    }
+  ];
+
+  let randomMessage = null;
+  if (moveCount > 2) {
+    randomMessage = messages[Math.floor(Math.random() * messages.length)];
+  }
+
+  res.status(200).json({ message: randomMessage });
 }

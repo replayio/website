@@ -22,13 +22,6 @@ const Home = () => {
 
   function printWelcomeMessage() {
     console.log("Welcome to Replay!👋 Here's how to get started");
-    console.log("1. Hover over this line");
-    console.log(
-      "2. Notice the rewind/fast forward button to the left? Click it."
-    );
-    console.log(
-      "3. Now the source code will appear on the left. Click the plus icon to add a print statement."
-    );
     console.log("");
     console.log("Say hi in Discord: replay.io/discord");
   }
