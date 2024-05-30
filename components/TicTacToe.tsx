@@ -93,7 +93,7 @@ const TicTacToe: React.FC = () => {
     }
   }, [moveCount]);
 
-  const handleClick = (index: number) => {
+  const handleClick = async (index: number) => {
     if (board[index] || winner || currentPlayer === "O") return;
     const newBoard = [...board];
     newBoard[index] = currentPlayer;

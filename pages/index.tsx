@@ -72,9 +72,7 @@ const Home = () => {
             left: "51%",
             transform: "translateY(-50%)"
           }}
-        >
-          <StepContent currentStep={currentStep} />
-        </div>
+        ></div>
       )}
     </div>
   );
