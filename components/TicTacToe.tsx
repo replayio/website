@@ -108,6 +108,9 @@ const TicTacToe: React.FC = () => {
         );
       }
       setShowMessage(true);
+      console.log(
+        "Mouse over this line in the console and click to time travel."
+      );
       return;
     }
 
@@ -116,12 +119,11 @@ const TicTacToe: React.FC = () => {
       setMessage(
         "Now press any key in the terminal and we’ll look at the results together."
       );
+      console.log(
+        "You got a draw?! Mouse over this line in the console and click to time travel."
+      );
       return;
     }
-
-    console.log(
-      "Mouse over this line in the console and click to time travel."
-    );
 
     setCurrentPlayer("O");
     setMoveCount((prevCount) => prevCount + 1);
