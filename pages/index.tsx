@@ -20,7 +20,7 @@ const Home = () => {
   }, []);
 
   function printWelcomeMessage() {
-    console.log("👋 Welcome to Replay! Here's how to get started.");
+    console.log("👋 Welcome to Replay!");
   }
 
   const handleClick = (step: number) => {

@@ -109,10 +109,7 @@ const TicTacToe: React.FC = () => {
       }
       setShowMessage(true);
       console.log(
-        "1. Mouse over this line in the console and click to time travel."
-      );
-      console.log(
-        "2. Be sure to check the Network tab to see calls to /api/tictacbot"
+        "Mouse over this line in the console and click to time travel."
       );
       return;
     }
