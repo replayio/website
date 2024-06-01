@@ -73,6 +73,10 @@ a {
   animation: gradient-flow 4s ease infinite;
 }
 
+.success-color {
+  color: #ee0979;
+}
+
 .animated-gradient-text-2 {
   background: linear-gradient(90deg, #0077b6, #0096c7, #00b4d8, #030ea3);
   background-size: 200% 200%;
