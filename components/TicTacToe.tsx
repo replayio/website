@@ -2,6 +2,68 @@ import React, { useState, useEffect } from "react";
 import Icons from "./Icons";
 type Player = "X" | "O" | null;
 
+const copy = {
+  record:
+    "Now press any key in the terminal and we’ll look at the results together."
+};
+
+type Line = [number, number, number];
+const calculateWinner = (board: Player[]): [Player, Line | null] => {
+  const lines: Line[] = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ];
+  for (let i = 0; i < lines.length; i++) {
+    const [a, b, c] = lines[i];
+    if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+      return [board[a], lines[i]];
+    }
+  }
+  return [null, null];
+};
+
+const isGameOver = (board: Player[]): boolean => {
+  const [winner] = calculateWinner(board);
+  return winner !== null || board.every((cell) => cell !== null);
+};
+
+function Cell({
+  value,
+  index,
+  onClick,
+  board
+}: {
+  value: Player;
+  index: number;
+  board: Player[];
+  onClick: () => void;
+}) {
+  const cellColor = (value, index) => {
+    if (isGameOver(board)) {
+      const [, line] = calculateWinner(board);
+      return line.includes(index) ? "text-success" : "text-gray-500";
+    } else {
+      return value == "O" ? "text-gray-500" : "text-gray-900";
+    }
+  };
+
+  return (
+    <div
+      style={styles.cell}
+      className={`${cellColor(value, index)}`}
+      onClick={onClick}
+    >
+      {value}
+    </div>
+  );
+}
+
 const TicTacToe: React.FC = () => {
   const [board, setBoard] = useState<Player[]>(Array(9).fill(null));
   const [currentPlayer, setCurrentPlayer] = useState<Player>("X");
@@ -24,18 +86,14 @@ const TicTacToe: React.FC = () => {
           newBoard[randomIndex] = "O";
           setBoard(newBoard);
 
-          const checkWinner = calculateWinner(newBoard);
+          const [checkWinner] = calculateWinner(newBoard);
 
           if (checkWinner) {
             setWinner(checkWinner);
             if (checkWinner === "O") {
-              setMessage(
-                "Too bad! Now press any key in the terminal and we’ll look at the results together."
-              );
+              setMessage(`Too bad! ${copy.record}`);
             } else {
-              setMessage(
-                "Nice work! Now press any key in the terminal and we’ll look at the results together."
-              );
+              setMessage(`Nice work! ${copy.record}`);
             }
             setShowMessage(true);
             return;
@@ -93,19 +151,15 @@ const TicTacToe: React.FC = () => {
     newBoard[index] = currentPlayer;
     setBoard(newBoard);
 
-    const checkWinner = calculateWinner(newBoard);
+    const [checkWinner] = calculateWinner(newBoard);
     if (checkWinner) {
       setWinner(checkWinner);
       if (checkWinner === "O") {
         setHeader("Better luck next time!");
-        setMessage(
-          "Now press any key in the terminal and we’ll look at the results together."
-        );
+        setMessage(copy.record);
       } else {
         setHeader("Nice work!");
-        setMessage(
-          "Now press any key in the terminal and we’ll look at the results together."
-        );
+        setMessage(copy.record);
       }
       setShowMessage(true);
       console.log(
@@ -116,9 +170,7 @@ const TicTacToe: React.FC = () => {
 
     if (isGameOver(newBoard)) {
       setHeader("Draw!");
-      setMessage(
-        "Now press any key in the terminal and we’ll look at the results together."
-      );
+      setMessage(copy.record);
       console.log(
         "You got a draw?! Mouse over this line in the console and click to time travel."
       );
@@ -127,26 +179,6 @@ const TicTacToe: React.FC = () => {
 
     setCurrentPlayer("O");
     setMoveCount((prevCount) => prevCount + 1);
-  };
-
-  const calculateWinner = (board: Player[]): Player => {
-    const lines = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6]
-    ];
-    for (let i = 0; i < lines.length; i++) {
-      const [a, b, c] = lines[i];
-      if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-        return board[a];
-      }
-    }
-    return null;
   };
 
   const resetGame = () => {
@@ -159,24 +191,18 @@ const TicTacToe: React.FC = () => {
     console.log("Resetting game...");
   };
 
-  const isGameOver = (board: Player[]): boolean => {
-    return (
-      calculateWinner(board) !== null || board.every((cell) => cell !== null)
-    );
-  };
-
   return (
     <div className="flex justify-center items-start mt-3">
       <div>
         <div style={styles.board}>
           {board.map((value, index) => (
-            <div
+            <Cell
               key={index}
-              style={styles.cell}
+              index={index}
+              value={value}
+              board={board}
               onClick={() => handleClick(index)}
-            >
-              {value}
-            </div>
+            />
           ))}
         </div>
       </div>

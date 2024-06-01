@@ -8,7 +8,6 @@ const Home = () => {
   const [showDiv, setShowDiv] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [checkedItems, setCheckedItems] = useState([false, false, false]);
-  const [animateSuccess, setAnimateSuccess] = useState(false);
 
   useEffect(() => {
     printWelcomeMessage();
@@ -22,16 +21,6 @@ const Home = () => {
   function printWelcomeMessage() {
     console.log("👋 Welcome to Replay!");
   }
-
-  const handleClick = (step: number) => {
-    setCurrentStep(step);
-    const newCheckedItems = [...checkedItems];
-    newCheckedItems[step - 1] = true;
-    setCheckedItems(newCheckedItems);
-
-    const allStepsCompleted = newCheckedItems.every((item) => item);
-    setAnimateSuccess(allStepsCompleted);
-  };
 
   return (
     <div className="bg-[url('/grandcanyon-delorean.jpeg')] bg-cover bg-center h-screen flex justify-center items-center relative overflow-hidden">
