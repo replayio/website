@@ -3,19 +3,19 @@ import Icons from "./Icons";
 type Player = "X" | "O" | null;
 
 const copy = {
-  firstMoveHeader: "Shall we play a game?",
+  firstMoveHeader: "Ready to time travel?",
   firstMove:
-    "Let’s play a quick game of Tic Tac Toe! Afterwards, we'll inspect the replay.",
+    "Let’s play a quick game of Tic Tac Toe! After we’re done we’ll save the replay and inspect the app.",
 
   explanationHeader: "Guess what?",
   explanation:
-    "Replay is capturing all these events so you can investigate when you're done recording. That's where the product really shines!",
+    "I’m just picking random moves. The important thing is that we’ll be able to inspect the app when we're done.",
 
   secondMoveHeader: "Nice move!",
   secondMove: "Oh, this might be a tough match.",
 
   record:
-    "Now press any key in the terminal and we’ll look at the results together."
+    "Let’s save this replay and start inspecting. You’ve got two options, either quit this browser or go back to the terminal and press any key."
 };
 
 type Line = [number, number, number];
@@ -199,7 +199,7 @@ const TicTacToe: React.FC = () => {
   };
 
   return (
-    <div className="flex justify-center items-start mt-3">
+    <div className="flex items-start justify-center mt-3">
       <div>
         <div style={styles.board}>
           {board.map((value, index) => (
@@ -213,17 +213,17 @@ const TicTacToe: React.FC = () => {
           ))}
         </div>
       </div>
-      <div className="ml-8 w-64 text-left relative">
+      <div className="relative w-64 ml-8 text-left">
         {showMessage && (
           <div className="message-box">
-            <div className="text-2xl font-bold animated-gradient-text mb-4">
+            <div className="mb-4 text-2xl font-bold animated-gradient-text">
               {header}
             </div>
             <p className="text-xl">{message}</p>
           </div>
         )}
         <div
-          className="flex items-center justify-between mt-4 absolute top-0 right-0"
+          className="absolute top-0 right-0 flex items-center justify-between mt-4"
           style={{ top: "-65px", right: "-35px" }}
         >
           <div
