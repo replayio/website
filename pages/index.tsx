@@ -31,7 +31,7 @@ const Home = () => {
 
       {!showDiv && (
         <button onClick={() => setShowDiv(true)} className="get-started">
-          Get started with Replay
+          Ready to time travel?
         </button>
       )}
 

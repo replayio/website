@@ -3,6 +3,17 @@ import Icons from "./Icons";
 type Player = "X" | "O" | null;
 
 const copy = {
+  firstMoveHeader: "Shall we play a game?",
+  firstMove:
+    "Let’s play a quick game of Tic Tac Toe! Afterwards, we'll inspect the replay.",
+
+  explanationHeader: "Guess what?",
+  explanation:
+    "Replay is capturing all these events so you can investigate when you're done recording. That's where the product really shines!",
+
+  secondMoveHeader: "Nice move!",
+  secondMove: "Oh, this might be a tough match.",
+
   record:
     "Now press any key in the terminal and we’ll look at the results together."
 };
@@ -129,18 +140,14 @@ const TicTacToe: React.FC = () => {
         });
     } else {
       if (moveCount === 0) {
-        setHeader("Shall we play a game?");
-        setMessage(
-          "Let’s play Tic Tac Toe! It’ll help explain some of Replay’s best features."
-        );
+        setHeader(copy.firstMoveHeader);
+        setMessage(copy.firstMove);
       } else if (moveCount === 1) {
-        setHeader("Nice move!");
-        setMessage("Oh, this might be a tough match.");
+        setHeader(copy.secondMoveHeader);
+        setMessage(copy.secondMove);
       } else if (moveCount === 2) {
-        setHeader("Guess what?");
-        setMessage(
-          "Replay is capturing all these events so you can investigate when you're done recording. That's where the product really shines!"
-        );
+        setHeader(copy.explanationHeader);
+        setMessage(copy.explanation);
       }
     }
   }, [moveCount]);
