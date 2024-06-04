@@ -216,7 +216,7 @@ const TicTacToe: React.FC = () => {
       <div className="relative w-64 ml-8 text-left">
         {showMessage && (
           <div className="message-box">
-            <div className="mb-4 text-2xl font-bold animated-gradient-text">
+            <div className="mb-4 text-2xl font-bold gradient-text">
               {header}
             </div>
             <p className="text-xl">{message}</p>
