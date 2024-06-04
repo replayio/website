@@ -58,7 +58,7 @@ function Cell({
   const cellColor = (value, index) => {
     if (isGameOver(board)) {
       const [, line] = calculateWinner(board);
-      return line.includes(index) ? "success-color" : "text-gray-500";
+      return line?.includes(index) ? "success-color" : "text-gray-500";
     } else {
       return value == "O" ? "text-gray-500" : "text-gray-900";
     }
